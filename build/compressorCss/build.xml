@@ -1,0 +1,44 @@
+<project name="CSS Compressor" basedir="." default="run">
+
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+        <classpath>
+            <pathelement location="${basedir}/ant-contrib-1.0b3.jar"/>
+        </classpath>
+    </taskdef>
+
+    <target name="init">
+        <delete dir="${basedir}/temp"/>
+        <mkdir dir="${basedir}/temp"/>
+        <copy todir="${basedir}/temp">
+            <fileset dir="${dir.source}"/>
+        </copy>
+        <delete file="${basedir}/temp/global.css"/>
+        <delete file="${basedir}/temp/size.css"/>
+    </target>
+
+
+    <target name="compress">
+        <foreach list="" parallel="true" target="doCompress" param="file" trim="true">
+            <fileset dir="${basedir}/temp">
+                <exclude name="global/"/>
+            	<exclude name="**/*png"/>
+            </fileset>
+        </foreach>
+        <copy todir="${dir.output}">
+            <fileset dir="${basedir}/temp">
+            </fileset>
+        </copy>
+
+        <delete dir="${basedir}/temp"/>
+    </target>
+
+
+    <target name="doCompress">
+        <echo message="${file}"/>
+        <java jar="${basedir}/yuicompressor-2.4.8pre.jar" fork="true" failonerror="true">
+            <arg line="--type css ${file} -o ${file}"/>
+        </java>
+    </target>
+
+    <target name="run" depends="init,compress" />
+</project>

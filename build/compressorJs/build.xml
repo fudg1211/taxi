@@ -1,0 +1,156 @@
+<?xml version="1.0" ?>
+<project name="JS Compressor" basedir="." default="run">
+
+    <fail unless="dir.source" message="Property dir.source Must be specified!"/>
+
+    <property name="dir.lib" location="${basedir}/lib" />
+    <property name="dir.tmp" location="${basedir}/tmp" />
+
+    <!--Install Ant-Contrib-->
+    <taskdef resource="net/sf/antcontrib/antlib.xml">
+        <classpath>
+            <pathelement location="${dir.lib}/ant-contrib-1.0b3.jar"/>
+        </classpath>
+    </taskdef>
+
+    <!--Install JsLint-->
+    <taskdef name="jslint" classname="com.googlecode.jslint4java.ant.JSLintTask">
+        <classpath>
+            <pathelement location="${dir.lib}/jslint4java-2.0.0.jar" />
+        </classpath>
+    </taskdef>
+
+    <!-- 参数信息 -->
+    <property name="dir.output" location="${basedir}/output" />
+    <property name="file.includes" value="*.js" />
+    <property name="file.excludes" value="" />
+    <property name="file.destname" value="script" />
+    <property name="dir.source" value="" />
+
+    <!-- ${is.contact}'s default value is true -->
+    <!-- if   (file.includes  equals   * OR  *.js ) , then   is.contact = FALSE, 将所有目标文件分别压缩  -->
+    <property name="is.contact" value="true" />
+	
+    <!--${is.debug}'s default value is FALSE-->
+    <property name="is.debug" value="false" />
+
+	
+
+    <target name="init">
+        <tstamp />
+        <mkdir dir="${dir.tmp}" />
+        <mkdir dir="${dir.output}" />
+        <copy todir="${dir.tmp}">
+            <fileset dir="${dir.source}">
+                <exclude name="test/"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="clean">
+        <delete dir="${dir.tmp}" />
+    </target>
+
+    <target name="build">
+        <if>
+            <equals arg1="${is.debug}" arg2="true" />
+            <then>
+                <property name="dir.output.concatenate" location="${dir.output}" />
+                <antcall target="concat" />
+            </then>
+            <else>
+                <property name="dir.output.concatenate" location="${dir.tmp}" />
+                <antcall target="concat" />
+                <antcall target="compress" />
+            </else>
+        </if>
+    </target>
+
+    <!--Add Lint task-->
+    <target name="run">
+        <antcall target="clean" />
+        <antcall target="init" />
+        <antcall target="compress" />
+        <delete dir="${dir.tmp}" />
+    </target>
+
+    <target name="lint">
+        <jslint haltOnFailure="false" options="white">
+            <formatter type="plain" />
+            <fileset dir="${dir.source}" includes="${file.includes}" excludes="${file.excludes}" />
+        </jslint>
+    </target>
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: allcontact                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="allcontact">
+    		<mkdir dir="${dir.tmp}/source" />
+    		<if>
+        		<equals arg1="${is.contact}" arg2="true" />
+        		<then>
+                <concat fixlastline="true" destfile="${dir.output.concatenate}/${file.destname}.js"
+                        encoding="utf-8" outputencoding="utf-8">
+                    <fileset dir="${dir.source}" includes="${file.includes}" excludes="${file.excludes}"/>
+                    <filterchain>
+                        <deletecharacters chars="&#xFEFF;" />
+                    </filterchain>
+                </concat>
+    			</then>
+        		<else>
+        			<copy todir="${dir.output.concatenate}"  filtering="true" encoding="UTF8" outputencoding="UTF8" overwrite="true">
+        				<fileset dir="${dir.source}" includes="${file.includes}" excludes="${file.excludes}"/>
+        			</copy>
+    			</else>
+    		</if>
+    </target>
+	
+    <!--Concatenate files-->
+    <target name="concat" >
+        <if>
+            	<equals arg1="${file.includes}" arg2="*" />
+            <then>
+				<antcall target="allcontact"/>
+            </then>
+        		<elseif>
+	            	<equals arg1="${file.includes}" arg2="*.js" />
+	            <then>
+					<antcall target="allcontact"/>
+	            </then>
+    			</elseif>
+            <else>
+                <var name="index" value="1" />
+                <mkdir dir="${dir.tmp}/source" />
+                <for list="${file.includes}" param="file" trim="true">
+                    <sequential>
+                        <math result="index" operand1="${index}" operand2="1" operation="+" datatype="int" />
+                        <copy file="${dir.source}/@{file}" tofile="${dir.tmp}/source/${index}_@{file}" />
+                    </sequential>
+                </for>
+                <concat fixlastline="true" destfile="${dir.output.concatenate}/${file.destname}.js"
+                        encoding="utf-8" outputencoding="utf-8">
+                    <fileset dir="${dir.tmp}/source" />
+                    <filterchain>
+                        <deletecharacters chars="&#xFEFF;" />
+                    </filterchain>
+                </concat>
+            	
+                <delete dir="${dir.tmp}/source" />
+            </else>
+        </if>
+    </target>
+
+    <!--Compress files-->
+    <target name="compress">
+        <property name="google-compiler" value="${dir.lib}/compiler.jar" />
+        <apply executable="java" dest="${dir.output}" force="true">
+            <fileset dir="${dir.tmp}" includes="**/*js" excludes="${file.excludes}"/>
+            <arg line="-jar" />
+            <arg path="${google-compiler}" />	
+            <arg line="--js" />
+            <srcfile />
+            <arg line="--js_output_file" />
+            <mapper type="identity"/>
+            <targetfile />
+        </apply>
+    </target>
+</project>

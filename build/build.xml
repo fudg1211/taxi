@@ -1,0 +1,121 @@
+<project name="webBuild" basedir="../">
+    <tstamp>
+        <format property="date" pattern="yyyy/MM/dd"/>
+        <format property="time" pattern="hh:mm aa"/>
+        <format property="dateTime" pattern="MMddHHmmss"/>
+    </tstamp>
+
+    <property file="${basedir}/build/build.properties"/>
+
+    <target name="init">
+        <delete dir="${dir.output}"/>
+        <mkdir dir="${dir.output}"/>
+    </target>
+
+
+    <target name="develep" depends="init"  description="部署到测试环境，不优化代码">
+        <copy todir="${dir.output}">
+            <fileset dir="${dir.web}">
+                <exclude name=".idea/"/>
+                <exclude name="*iml"/>
+            </fileset>
+        </copy>
+        <delete dir="${dir.output}/build"/>
+
+        <antcall target="controlVersion"/>
+
+        <antcall target="scp"/>
+    </target>
+
+    <target name="_test" depends="init">
+        <copy todir="${dir.output}">
+            <fileset dir="${dir.web}">
+                <exclude name=".idea/"/>
+                <exclude name="*iml"/>
+            </fileset>
+        </copy>
+        <delete dir="${dir.output}/build"/>
+
+        <antcall target="compressAlone"/>
+        <antcall target="optimize"/>
+
+        <antcall target="controlVersion"/>
+    </target>
+	
+    <target name="test" description="测试环境部署，优化代码" depends="_test">
+    	<antcall target="scp"/>
+    </target>
+
+
+    <target name="scp" depends="zip">
+        <!--<scp todir="fudongguang:2SLvvrMkA5.Z@125.39.222.252:." port="63008" trust="true" verbose="true">-->
+            <!--<fileset dir="${dir.zip}">-->
+                <!--<include name="*zip"/>-->
+            <!--</fileset>-->
+        <!--</scp>-->
+        <!--<sshexec host="125.39.222.252" username="fudongguang" password="2SLvvrMkA5.Z" port="63008" command="cd /home/fudongguang;expect CPS.sh" timeout="10000" trust="true" failonerror="false"/>-->
+    </target>
+
+    <target name="controlVersion">
+        <replaceregexp match="v=\d+" replace="v=${dateTime}" byline="false" flags="g" encoding="utf-8">
+            <fileset dir="${dir.output}">
+                <include name="**/*css"/>
+                <include name="**/*js"/>
+                <include name="**/*jsp"/>
+            </fileset>
+        </replaceregexp>
+    </target>
+
+    <target name="optimize">
+        <property name="dir.requirejs" value="${dir.build}/requirejs"/>
+        <property name="dir.r.js" value="${dir.requirejs}/r.js"/>
+        <property name="dir.config" value="${dir.requirejs}/config"/>
+
+        <java classname="org.mozilla.javascript.tools.shell.Main">
+            <classpath>
+                <pathelement location="${dir.requirejs}/rhino.jar"/>
+                <pathelement location="${dir.requirejs}/closure.jar"/>
+            </classpath>
+            <arg value="${dir.r.js}"/>
+            <arg value="-o"/>
+            <arg value="${dir.config}/config.js"/>
+        </java>
+
+        <java classname="org.mozilla.javascript.tools.shell.Main">
+            <classpath>
+                <pathelement location="${dir.requirejs}/rhino.jar"/>
+                <pathelement location="${dir.requirejs}/closure.jar"/>
+            </classpath>
+            <arg value="${dir.r.js}"/>
+            <arg value="-o"/>
+            <arg value="${dir.config}/config.css"/>
+            <arg value="optimizeCss=standard"/>
+        </java>
+    </target>
+
+    <target name="zip">
+        <zip destfile="${dir.zip}/sparkPlan.zip" basedir="${dir.output}"/>
+    </target>
+
+    <target name="restartTestServer">
+        <sshexec host="10.1.15.123" username="root" password="proxy123" command="cd /root/update/test;sh install_activity_9009.sh" timeout="600000" trust="true"/>
+    </target>
+
+    <target name="compressAlone">
+        <subant buildpath="${dir.build}/compressorJs" antfile="build.xml">
+            <property name="dir.source" location="${dir.web}/js" />
+            <property name="dir.output" location="${dir.output}/js" />
+            <property name="file.destname" value="" />
+            <property name="file.includes" value="**/*js" />
+            <property name="file.excludes" value="app.js" />
+            <property name="is.contact" value="false" />
+            <property name="is.debug" value="false" />
+        </subant>
+
+        <subant buildpath="${dir.build}/compressorCss" antfile="build.xml">
+            <property name="dir.source" location="${dir.web}/css" />
+            <property name="dir.output" location="${dir.output}/css" />
+        </subant>
+
+    </target>
+</project>
