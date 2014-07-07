@@ -120,12 +120,7 @@
 
     }
 }
-.part02 .slideAni{
-    -webkit-animation:slideDown 2.5s ease 0s 1 normal forwards;
-    -moz-animation:slideDown 2.5s ease 0s 1 normal forwards;
-    -o-animation:slideDown 2.5s ease 0s 1 normal forwards;
-    animation:slideDown 2.5s ease 0s 1 normal forwards;
-}
+
 
 @-webkit-keyframes slideLeft{
     from{
@@ -229,29 +224,6 @@
     }
 }
 
-.part04 .slideAni{
-    -webkit-animation:slideRight 2.5s ease 0s 1 normal forwards;
-    -moz-animation:slideRight 2.5s ease 0s 1 normal forwards;
-    -o-animation:slideRight 2.5s ease 0s 1 normal forwards;
-    animation:slideRight 2.5s ease 0s 1 normal forwards;
-}
-
-.part05 .slideAni-pic{
-    -webkit-animation:bounce 2.5s ease 0s 1 normal forwards;
-    -moz-animation:bounce 2.5s ease 0s 1 normal forwards;
-    -o-animation:bounce 2.5s ease 0s 1 normal forwards;
-    animation:bounce 2.5s ease 0s 1 normal forwards;
-}
-.part05 .slideAni{
-    -webkit-animation:slideUp 2.5s ease 0s 1 normal forwards;
-    -moz-animation:slideUp 2.5s ease 0s 1 normal forwards;
-    -o-animation:slideUp 2.5s ease 0s 1 normal forwards;
-    animation:slideUp 2.5s ease 0s 1 normal forwards;
-    font-size:22px;
-    color:#fff;
-}
-
-
 
 
 .fadeIn{
@@ -336,23 +308,21 @@
 
 
 .radius-animation{
-    box-shadow:0 0 0 8px rgba(255,255,255,0.2),0 0 0 16px rgba(255,255,255,0.2),0 0 0 24px rgba(255,255,255,0.2);
-    -webkit-animation: radius linear 2s 0.9s infinite;
+    -webkit-animation: radius-animation linear 2s 0.9s infinite;
 }
 
-@-webkit-keyframes radius {
+@-webkit-keyframes radius-animation {
     0% {
-        box-shadow:0 0 0 8px rgba(255,255,255,0.2),0 0 0 16px rgba(255,255,255,0.2),0 0 0 24px rgba(255,255,255,0.2);
-
+        box-shadow:0 0 0 0 rgba(255,255,255,0.2),0 0 0 0 rgba(255,255,255,0.2),0 0 0 0 rgba(255,255,255,0.2)
     }
 
     50% {
-        box-shadow:0 0 0 0 rgba(255,255,255,0.2),0 0 0 0 rgba(255,255,255,0.2),0 0 0 0 rgba(255,255,255,0.2)
+        box-shadow:0 0 0 8px rgba(255,255,255,0.2),0 0 0 16px rgba(255,255,255,0.2),0 0 0 24px rgba(255,255,255,0.2);
 
     }
 
     100% {
-        box-shadow:0 0 0 8px rgba(255,255,255,0.2),0 0 0 16px rgba(255,255,255,0.2),0 0 0 24px rgba(255,255,255,0.2);
+        box-shadow:0 0 0 0 rgba(255,255,255,0.2),0 0 0 0 rgba(255,255,255,0.2),0 0 0 0 rgba(255,255,255,0.2)
 
     }
 }
