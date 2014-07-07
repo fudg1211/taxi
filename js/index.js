@@ -5,7 +5,7 @@
  * Time: AM10:48
  * To change this template use File | Settings | File Templates.
  */
-define(['./global/global', './data/data'], function (g, data, Validator) {
+define(['./global/global'], function (g) {
 	var IndexController = FishMVC.View.extend({
 		init: function () {
 
