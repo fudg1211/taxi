@@ -32,9 +32,12 @@ define(['./global/global', './data/data'], function (g, data, Validator) {
 
         doPart02Position:function(target){
             var c = target.data('xy'),
+                self = this,
                 translate = 'translate('+c[0]+'px,'+c[1]+'px)';
-            this['part02Zhizheng'].css('-webkit-animation','zhizheng 2.5s ease 0s 1 normal');
-            this['part02Zhizheng'].css('-webkit-transform',translate);
+            this['part02Zhizheng'].css({'opacity':1,'-webkit-animation':'none'});
+            setTimeout(function(){
+                self['part02Zhizheng'].css('-webkit-transform',translate);
+            },100)
         }
 	});
 	var indexController = new IndexController({el: $('.wrapper')});

@@ -3,8 +3,7 @@ requirejs.config({
 	baseUrl: './js/',
 	paths:{
 		Fish:'./lib/Fish',
-		ejs:'./lib/ejs_production',
-		json2:'./lib/ejs_production',
+		json2:'./lib/json2',
 		common:'./global/common'
 	},
 	shim:{
@@ -17,7 +16,7 @@ requirejs.config({
 
 // Start the main app logic.
 requirejs(
-	['./lib/Fish','./lib/ejs_production', './lib/ejs_production','./global/global'],
+	['./lib/Fish', './lib/json2','./global/global'],
 	function () {
 		//jQuery, canvas and the app/sub module are all
 		//loaded and can be used here now.
