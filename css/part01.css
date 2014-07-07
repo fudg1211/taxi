@@ -37,7 +37,7 @@
     background: url(../images/index_02.png?v=123) no-repeat;
     width: 403px;
     height: 351px;
-    top: 441px;
+    top: 411px;
     left: 70px;
     position: absolute;
 }
@@ -61,7 +61,7 @@
 
 .part02-zhizheng{
     opacity: 0;
-    -webkit-animation:zhizheng 2s ease 1.5s 1 normal forwards;
+    -webkit-animation:zhizheng 2s ease 3s 1 normal forwards;
     transition:-webkit-transform 1s ease;
     -webkit-transform:translate(261px,328px);
 }
@@ -71,7 +71,7 @@
 @-webkit-keyframes zhizheng{
     from{
         opacity: 0;
-        -webkit-transform:translate(0,0);
+        -webkit-transform:translate(130px,150px);
     }
     to{
         opacity: 1;
@@ -117,7 +117,7 @@
     left: 0;
     top: 0;
     opacity: 0;
-    -webkit-animation:part02-titleslideDown 0.5s ease 1s 1 normal forwards;
+    -webkit-animation:part02-titleslideDown 2s ease 1s 1 normal forwards;
 }
 @-webkit-keyframes part02-titleslideDown{
     from{
@@ -137,16 +137,17 @@
     width: 100%;
     opacity: 0;
     -webkit-transform:translate(0,100%);
-    -webkit-animation:part02-phonelideUp 1s ease 0.5s 1 normal forwards;
+    -webkit-animation:part02-phone 5s ease 0s 1 normal forwards;
 
 }
 
-@-webkit-keyframes part02-phonelideUp{
-    from{
+@-webkit-keyframes part02-phone{
+    0%{
         opacity: 0;
-        -webkit-transform:translate(0,100%);
+        -webkit-transform:translate(0,70%);
     }
-    to{
+
+    100%{
         opacity: 1;
         -webkit-transform:translate(0,150px);
     }
@@ -174,6 +175,88 @@
 }
 
 .part02-radius-animation{
-    -webkit-animation: radius-animation linear 2s 2s infinite;
+    -webkit-animation: radius-animation linear 2s 4.5s infinite;
 }
 
+/*********part03***********/
+.part03{
+    background: url(../images/part03_01.jpg?v=123) no-repeat center top;
+}
+
+.part03-title{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    -webkit-animation:part02-titleslideDown 2s ease 0s 1 normal forwards;
+
+}
+
+.part03-cart{
+    position: absolute;
+    left: 0;
+    top:220px;
+    width: 100%;
+}
+
+.part03-desc{
+    position: absolute;
+    left: 0;
+    top: 490px;
+    width: 100%;
+}
+
+@-webkit-keyframes part03slideUp{
+    from{
+        opacity: 0;
+        -webkit-transform:translate(0,60px);
+    }
+    to{
+        opacity: 1;
+        -webkit-transform:translate(0,0);
+    }
+}
+
+.part03 .slideUp{
+    -webkit-animation:part03slideUp 2.5s ease 0s 1 normal forwards;
+}
+
+
+.part03 .part02-button{
+    top: 763px;
+    left: 178px;
+    width: 286px;
+    height: 50px;
+    border-radius: 48px;
+}
+
+.part03 .part02-radius-animation{
+    -webkit-animation: radius-animation linear 2s 2.5s infinite;
+}
+
+
+.part03_jiantou{
+    position: absolute;
+    top: 280px;
+    left: 0;
+    height: 47px;
+    width: 100%;
+}
+
+.part03-cart .img{
+    display: none;
+}
+
+.part03-cart .img:first-child{
+    display: inline;
+}
+
+
+.part03-desc .img{
+    display: none;
+}
+
+.part03-desc .img:first-child{
+    display: inline;
+}

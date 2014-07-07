@@ -13,11 +13,17 @@ define(['./global/global'], function (g) {
 		elements: {
             '.J_nextPage':'nextPage',
             '.J_part02_position':'part02Position',
-            '#part02Zhizheng':'part02Zhizheng'
+            '#part02Zhizheng':'part02Zhizheng',
+            '#part03Prev':'part03Prev',
+            '#part03Next':'part03Next',
+            '#part03Car':'part03Car',
+            '.part03-cart .img':'cartImg',
+            '.part03-desc .img':'cartImgDesc'
 		},
 		events: {
             'click nextPage':'doNextPage',
-            'click part02Position':'doPart02Position'
+            'click part02Position':'doPart02Position',
+            'click part03Next':'doPart03Next'
 		},
 
         doNextPage:function(target){
@@ -38,6 +44,19 @@ define(['./global/global'], function (g) {
             setTimeout(function(){
                 self['part02Zhizheng'].css('-webkit-transform',translate);
             },100)
+        },
+
+        doPart03Next:function(target){
+            var nexObj = this['part03Car'].next(),
+                nextClass = nexObj.attr('class');
+
+            if(nextClass!=='img'){
+                return false;
+            }
+
+            this['part03Car'].hide().removeAttr('id');
+            nexObj.show().attr('id','part03Car');
+
         }
 	});
 	var indexController = new IndexController({el: $('.wrapper')});
