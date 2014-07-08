@@ -88,6 +88,15 @@
     top: 633px;
 }
 
+.part02 .nextPage{
+    width: 160px;
+    height: 70px;
+    border-radius: 15px;
+    position: absolute;
+    left: 239px;
+    top: 613px;
+}
+
 .part02-position{
     width: 70px;
     height: 70px;
@@ -224,7 +233,7 @@
 
 
 .part03 .part02-button{
-    top: 763px;
+    bottom: 78px;
     left: 178px;
     width: 286px;
     height: 50px;
