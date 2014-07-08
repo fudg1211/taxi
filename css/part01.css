@@ -61,7 +61,7 @@
 
 .part02-zhizheng{
     opacity: 0;
-    -webkit-animation:zhizheng 2s ease 3s 1 normal forwards;
+    -webkit-animation:zhizheng 2s ease 0.5s 1 normal forwards;
     transition:-webkit-transform 1s ease;
     -webkit-transform:translate(261px,328px);
 }
@@ -89,12 +89,13 @@
 }
 
 .part02 .nextPage{
-    width: 160px;
-    height: 70px;
+    width: 200px;
+    height: 90px;
     border-radius: 15px;
     position: absolute;
-    left: 239px;
-    top: 613px;
+    left: 219px;
+    top: 610px;
+    display: inline-block;
 }
 
 .part02-position{
@@ -126,7 +127,7 @@
     left: 0;
     top: 0;
     opacity: 0;
-    -webkit-animation:part02-titleslideDown 2s ease 1s 1 normal forwards;
+    -webkit-animation:part02-titleslideDown 2s ease 0s 1 normal forwards;
 }
 @-webkit-keyframes part02-titleslideDown{
     from{
@@ -145,15 +146,14 @@
     top: 0;
     width: 100%;
     opacity: 0;
-    -webkit-transform:translate(0,100%);
-    -webkit-animation:part02-phone 5s ease 0s 1 normal forwards;
+    -webkit-animation:part02-phone 2s ease 0s 1 normal forwards;
 
 }
 
 @-webkit-keyframes part02-phone{
     0%{
         opacity: 0;
-        -webkit-transform:translate(0,70%);
+        -webkit-transform:translate(0,300px);
     }
 
     100%{
@@ -184,7 +184,7 @@
 }
 
 .part02-radius-animation{
-    -webkit-animation: radius-animation linear 2s 4.5s infinite;
+    -webkit-animation: radius-animation linear 2s 2s infinite;
 }
 
 /*********part03***********/
@@ -212,7 +212,7 @@
 .part03-desc{
     position: absolute;
     left: 0;
-    top: 490px;
+    top: 300px;
     width: 100%;
 }
 
@@ -233,11 +233,13 @@
 
 
 .part03 .part02-button{
-    bottom: 78px;
-    left: 178px;
+    bottom: 90px;
+    left: 179px;
+    position: absolute;
     width: 286px;
     height: 50px;
     border-radius: 48px;
+    top:auto;
 }
 
 .part03 .part02-radius-animation{
@@ -245,20 +247,8 @@
 }
 
 
-.part03_jiantou{
-    position: absolute;
-    top: 280px;
-    left: 0;
-    height: 47px;
-    width: 100%;
-}
-
 .part03-cart .img{
     display: none;
-}
-
-.part03-cart .img:first-child{
-    display: inline;
 }
 
 
@@ -266,6 +256,46 @@
     display: none;
 }
 
-.part03-desc .img:first-child{
+.touchslider-nav-item-current{
+    display: inline !important;
+}
+
+
+.touchslider-item{
+    width: 640px;
+    height: 198px;
+}
+
+.touchslider-item img{
+    display: none;
+}
+
+.touchslider-item:first-child img{
     display: inline;
+}
+
+.part03Prev{
+    position: absolute;
+    left: 22px;
+    top: 280px;
+    -webkit-transform:rotate(180deg);
+}
+
+.part03Next{
+    position: absolute;
+    right: 22px;
+    top: 280px;
+}
+
+.touchslider>div>span{
+    display: inline-block;
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+}
+
+
+.part03-jiantou img{
+    opacity: 0.3;
 }

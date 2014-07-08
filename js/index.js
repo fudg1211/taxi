@@ -8,7 +8,7 @@
 define(['./global/global'], function (g) {
 	var IndexController = FishMVC.View.extend({
 		init: function () {
-
+            var self = this;
 		},
 		elements: {
             '.J_nextPage':'nextPage',
@@ -18,7 +18,10 @@ define(['./global/global'], function (g) {
             '#part03Next':'part03Next',
             '#part03Car':'part03Car',
             '.part03-cart .img':'cartImg',
-            '.part03-desc .img':'cartImgDesc'
+            '.part03-desc .img':'cartImgDesc',
+            '.touchslider-item img':'touchsliderItemImg',
+            '#part03Prev img':'part03Prev',
+            '#part03Next img':'part03Next'
 		},
 		events: {
             'click nextPage':'doNextPage',
@@ -29,6 +32,10 @@ define(['./global/global'], function (g) {
         doNextPage:function(target){
             var pageObj = target.parents('.page'),
                 nexPageObj = pageObj.next();
+
+            if(nexPageObj.hasClass('part03')){
+                this['initPart03']();
+            }
 
             if(nexPageObj && nexPageObj.length && nexPageObj[0].nodeName.toLocaleLowerCase()!=='script'){
                 pageObj.hide();
@@ -57,6 +64,29 @@ define(['./global/global'], function (g) {
             this['part03Car'].hide().removeAttr('id');
             nexObj.show().attr('id','part03Car');
 
+        },
+
+        initPart03:function(){
+            var self = this;
+            this.touchsliderItemImg.show();
+
+            $(".touchslider").touchSlider({/*options*/});
+
+            var i = 0;
+            setInterval((function(){
+                self['part03Prev'].css('opacity',0.5);
+                self['part03Next'].css('opacity',0.5);
+                self['part03Prev'].eq(i).css('opacity',1);
+                self['part03Next'].eq(i).css('opacity',1);
+                i++;
+
+                if(i>2){
+                    i=0;
+                }
+
+                console.log(i);
+
+            }),300)
         }
 	});
 	var indexController = new IndexController({el: $('.wrapper')});

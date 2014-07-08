@@ -12,6 +12,7 @@ body,ul,ol,li,dl,dt,dd,p,blockquote,h1,h2,h3,h4,h5,h6,form,fieldset,input,button
 }
 html,body {
     height: 100%;
+    min-height: 700px;
     overflow: hidden;
 }
 body {

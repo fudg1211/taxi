@@ -61,7 +61,7 @@
             <fileset dir="${dir.output}">
                 <include name="**/*css"/>
                 <include name="**/*js"/>
-                <include name="**/*jsp"/>
+                <include name="**/*html"/>
             </fileset>
         </replaceregexp>
     </target>
