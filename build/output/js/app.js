@@ -11,7 +11,7 @@ requirejs.config({
 			deps:['Fish', 'ejs', 'json2']
 		}
 	},
-	urlArgs: 'v=0708231511'
+	urlArgs: 'v=0708232515'
 });
 
 // Start the main app logic.

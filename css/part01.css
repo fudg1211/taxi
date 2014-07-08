@@ -61,7 +61,7 @@
 
 .part02-zhizheng{
     opacity: 0;
-    -webkit-animation:zhizheng 2s ease 0.5s 1 normal forwards;
+    -webkit-animation:zhizheng 1.5s ease 0.5s 1 normal forwards;
     transition:-webkit-transform 1s ease;
     -webkit-transform:translate(261px,328px);
 }
@@ -71,7 +71,7 @@
 @-webkit-keyframes zhizheng{
     from{
         opacity: 0;
-        -webkit-transform:translate(130px,150px);
+        -webkit-transform:translate(180px,250px);
     }
     to{
         opacity: 1;

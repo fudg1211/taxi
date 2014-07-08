@@ -34,7 +34,7 @@
 }
 
 .part01-desc{
-    background: url(../images/index_02.png?v=0708231511) no-repeat;
+    background: url(../images/index_02.png?v=0708232515) no-repeat;
     width: 403px;
     height: 351px;
     top: 411px;
@@ -54,14 +54,14 @@
 
 /*********part02***********/
 .part02{
-    background: url(../images/part02_01.jpg?v=0708231511) no-repeat center 100px;
+    background: url(../images/part02_01.jpg?v=0708232515) no-repeat center 100px;
 }
 
 
 
 .part02-zhizheng{
     opacity: 0;
-    -webkit-animation:zhizheng 2s ease 0.5s 1 normal forwards;
+    -webkit-animation:zhizheng 1.5s ease 0.5s 1 normal forwards;
     transition:-webkit-transform 1s ease;
     -webkit-transform:translate(261px,328px);
 }
@@ -71,7 +71,7 @@
 @-webkit-keyframes zhizheng{
     from{
         opacity: 0;
-        -webkit-transform:translate(130px,150px);
+        -webkit-transform:translate(180px,250px);
     }
     to{
         opacity: 1;
@@ -189,7 +189,7 @@
 
 /*********part03***********/
 .part03{
-    background: url(../images/part03_01.jpg?v=0708231511) no-repeat center top;
+    background: url(../images/part03_01.jpg?v=0708232515) no-repeat center top;
 }
 
 .part03-title{

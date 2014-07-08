@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="width=640, target-densitydpi=320, maximum-scale=1.0, minimum-scale=0.1, user-scalable=no"
+          name="viewport"/>
+    <title>AA租车</title>
+    <link rel="stylesheet" type="text/css" href="css/public/public.css?v=0708232515"/>
+    <link rel="stylesheet" type="text/css" href="css/part01.css?v=0708232515"/>
+</head>
+<body>
+<img src="images/music.png" class="music" style="display: none"/>
+
+<div class="part01 page  fadeIn">
+    <img src="images/index_01.jpg?v=0708232515" class="part01-bg"/>
+
+    <div class="wrapper">
+        <div class="part01-desc slideUp J_nextPage">
+            <div class="part01-logo-animation radius-animation"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="part02 page hide fadeIn">
+    <div class="wrapper">
+        <div class="tc part02-title"><img src="images/part02_04.png"/></div>
+        <div class="tc part02-phone"><img src="images/part02_05.png"/></div>
+
+        <img src="images/part02_03.png" class="part02-zhizheng" id="part02Zhizheng"/>
+
+        <div class="J_part02_position part02-position" data-xy="[261,328]"></div>
+        <div class="J_part02_position part02-position" data-xy="[382,490]"></div>
+        <div class="J_part02_position part02-position" data-xy="[382,328]"></div>
+
+        <div class="part02-button part02-radius-animation"></div>
+        <a class="J_nextPage nextPage"></a>
+    </div>
+</div>
+
+<div class="part03 page hide fadeIn">
+    <div class="wrapper">
+        <div class="tc part03-title"><img src="images/part03_02.png"/></div>
+
+
+        <div class="tc part03-cart">
+            <div class="touchslider">
+                <div class="touchslider-viewport" style="width:640px;height:198px;overflow:hidden">
+                    <div style="height: 198px;">
+                        <div class="touchslider-item tc">
+                            <img src="images/part03_04_01.png"/>
+                        </div>
+                        <div class="touchslider-item tc">
+                            <img src="images/part03_04_02.png"/>
+                        </div>
+                        <div class="touchslider-item tc">
+                            <img src="images/part03_04_03.png"/>
+                        </div>
+                        <div class="touchslider-item tc">
+                            <img src="images/part03_04_04.png"/>
+                        </div>
+                        <div class="touchslider-item tc">
+                            <img src="images/part03_04_05.png"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="tc part03-desc slideUp">
+                    <img class="img touchslider-nav-item touchslider-nav-item-current" src="images/part03_03_01.png"/>
+                    <img class="img touchslider-nav-item" src="images/part03_03_02.png"/>
+                    <img class="img touchslider-nav-item" src="images/part03_03_03.png"/>
+                    <img class="img touchslider-nav-item" src="images/part03_03_04.png"/>
+                    <img class="img touchslider-nav-item" src="images/part03_03_05.png"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="part03-jiantou part03Prev" id="part03Prev">
+            <img src="images/jiantou.png"/>
+            <img src="images/jiantou.png" style="margin-left: -7px;"/>
+            <img src="images/jiantou.png"  style="margin-left: -7px;"/>
+        </div>
+        <div class="part03-jiantou part03Next" id="part03Next">
+            <img src="images/jiantou.png"/>
+            <img src="images/jiantou.png" style="margin-left: -7px;"/>
+            <img src="images/jiantou.png"  style="margin-left: -7px;"/>
+        </div>
+
+        <img src="images/part03_05.png" style="position: absolute;left: 178px;bottom:88px;"/>
+
+        <div class="part02-button J_nextPage part02-radius-animation"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://item.koudai.com/js/jquery.js"></script>
+<script type="text/javascript" src="http://item.koudai.com/js/require.js"></script>
+<script type="text/javascript" src="js/app.js?v=0708232515"></script>
+
+<script type="text/javascript">
+    requirejs([ 'index' ], function () {
+    });
+</script>
+
+</body>
+</html>
