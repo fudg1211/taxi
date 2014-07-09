@@ -34,7 +34,7 @@
 }
 
 .part01-desc{
-    background: url(../images/index_02.png?v=0708232515) no-repeat;
+    background: url(../images/index_02.png?v=0709235454) no-repeat;
     width: 403px;
     height: 351px;
     top: 411px;
@@ -54,7 +54,7 @@
 
 /*********part02***********/
 .part02{
-    background: url(../images/part02_01.jpg?v=0708232515) no-repeat center 100px;
+    background: url(../images/part02_01.jpg?v=0709235454) no-repeat center 100px;
 }
 
 
@@ -69,11 +69,11 @@
 
 
 @-webkit-keyframes zhizheng{
-    from{
+    0.01%{
         opacity: 0;
-        -webkit-transform:translate(180px,250px);
+        -webkit-transform:translate(200px,300px);
     }
-    to{
+    100%{
         opacity: 1;
         -webkit-transform:translate(261px,328px);
     }
@@ -151,7 +151,7 @@
 }
 
 @-webkit-keyframes part02-phone{
-    0%{
+    0.01%{
         opacity: 0;
         -webkit-transform:translate(0,300px);
     }
@@ -189,7 +189,7 @@
 
 /*********part03***********/
 .part03{
-    background: url(../images/part03_01.jpg?v=0708232515) no-repeat center top;
+    background: url(../images/part03_01.jpg?v=0709235454) no-repeat center top;
 }
 
 .part03-title{
@@ -298,4 +298,112 @@
 
 .part03-jiantou img{
     opacity: 0.3;
+}
+
+
+
+/*********part16***********/
+.part16{
+    background: url(../images/part16_05.jpg?v=0709235454) no-repeat center top;
+}
+
+
+.part16-phone{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+    -webkit-animation:part16-phone 2s ease 0s 1 normal forwards;
+
+}
+
+@-webkit-keyframes part16-phone{
+    0.01%{
+        opacity: 0;
+        -webkit-transform:translate(0,500px);
+    }
+
+    100%{
+        opacity: 1;
+        -webkit-transform:translate(0,377px);
+    }
+}
+
+.part16Prev {
+    position: absolute;
+    left: 290px;
+    bottom: 40px;
+    -webkit-transform: rotate(270deg) scale(0.8);
+}
+
+
+.part16 .part02-button {
+    width: 76px;
+    height: 76px;
+    border-radius: 38px;
+    position: absolute;
+    left: 281px;
+    top: 194px;
+}
+
+.part16 .part16-button-02{
+    left: 208px;
+    top: 305px;
+}
+
+.part16 .part16-button-03{
+    left: 348px;
+    top: 305px;
+}
+
+.part16-people{
+    position: absolute;
+    left: 0;
+    top:143px;
+}
+
+.part16-people img{
+    position: absolute;
+    left: 0;
+    top:0;
+    opacity: 0.9;
+}
+
+.part16-car{
+    position: absolute;
+    width: 100%;
+    height: 63px;
+    top:292px;
+}
+
+.part16-car img{
+    opacity: 0;
+    -webkit-transform:translate(-173px);
+    -webkit-transition:-webkit-transform 0s ease-out;
+}
+
+.part16-car-home{
+    opacity: 1 !important;
+    -webkit-transform:translate(73px) !important;
+}
+
+.part16-car-kehu{
+    opacity: 1 !important;
+    -webkit-transform:translate(260px)  !important;
+}
+
+.part16-car-friend{
+    opacity: 1 !important;
+    -webkit-transform:translate(440px)  !important;
+}
+
+.part16-car-end{
+    opacity: 1 !important;
+    -webkit-transform:translate(740px)  !important;
+}
+
+
+.wrapper{
+    /*margin-top: -200px;*/
 }

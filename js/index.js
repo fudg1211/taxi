@@ -30,9 +30,9 @@ define(['./global/global'], function (g) {
             '.part16-people img':'part16People'
 		},
 		events: {
-            'click nextPage':'doNextPage',
-            'click part02Position':'doPart02Position',
-            'click part03Next':'doPart03Next',
+            'touchstart nextPage':'doNextPage',
+            'touchstart part02Position':'doPart02Position',
+            'touchstart part03Next':'doPart03Next',
             'touchstart part16PhoneButton':'doPart16PhoneButton'
 		},
 

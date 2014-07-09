@@ -69,11 +69,11 @@
 
 
 @-webkit-keyframes zhizheng{
-    from{
+    0.01%{
         opacity: 0;
-        -webkit-transform:translate(180px,250px);
+        -webkit-transform:translate(200px,300px);
     }
-    to{
+    100%{
         opacity: 1;
         -webkit-transform:translate(261px,328px);
     }
@@ -151,7 +151,7 @@
 }
 
 @-webkit-keyframes part02-phone{
-    0%{
+    0.01%{
         opacity: 0;
         -webkit-transform:translate(0,300px);
     }
@@ -319,7 +319,7 @@
 }
 
 @-webkit-keyframes part16-phone{
-    0%{
+    0.01%{
         opacity: 0;
         -webkit-transform:translate(0,500px);
     }
