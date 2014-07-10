@@ -29,9 +29,9 @@
 
         <img src="images/part02_03.png" class="part02-zhizheng" id="part02Zhizheng"/>
 
-        <div class="J_part02_position part02-position" data-xy="[261,328]"></div>
-        <div class="J_part02_position part02-position" data-xy="[382,490]"></div>
-        <div class="J_part02_position part02-position" data-xy="[382,328]"></div>
+        <div class="J_part02_position part02-position" id="J_part02_position" title="东直门" data-xy="[261,328]"></div>
+        <div class="J_part02_position part02-position" title="国贸" data-xy="[382,490]"></div>
+        <div class="J_part02_position part02-position" title="首都机场" data-xy="[382,328]"></div>
 
         <div class="part02-button part02-radius-animation"></div>
         <a class="J_nextPage nextPage"></a>
@@ -65,11 +65,11 @@
                     </div>
                 </div>
                 <div class="tc part03-desc slideUp">
-                    <img class="img touchslider-nav-item touchslider-nav-item-current" src="images/part03_03_01.png"/>
-                    <img class="img touchslider-nav-item" src="images/part03_03_02.png"/>
-                    <img class="img touchslider-nav-item" src="images/part03_03_03.png"/>
-                    <img class="img touchslider-nav-item" src="images/part03_03_04.png"/>
-                    <img class="img touchslider-nav-item" src="images/part03_03_05.png"/>
+                    <img class="img touchslider-nav-item touchslider-nav-item-current" title="特拉斯" src="images/part03_03_01.png"/>
+                    <img class="img touchslider-nav-item" title="豪华车型" src="images/part03_03_02.png"/>
+                    <img class="img touchslider-nav-item" title="商务车型" src="images/part03_03_03.png"/>
+                    <img class="img touchslider-nav-item" title="舒适车型" src="images/part03_03_04.png"/>
+                    <img class="img touchslider-nav-item" title="经济车型" src="images/part03_03_05.png"/>
                 </div>
             </div>
         </div>
@@ -92,34 +92,62 @@
 </div>
 
 
-<div class="part16 page hide fadeIn">
+<!--<div class="part16 page hide fadeIn">-->
+    <!--<div class="wrapper">-->
+        <!--<div class="tc part02-title"><img src="images/part16_01.png"/></div>-->
+        <!--<div class="tc part16-phone">-->
+            <!--<img src="images/part16_02.png"/>-->
+            <!--<div class="part02-button part02-radius-animation" data-temp="part16-car-home,1.5,0"></div>-->
+            <!--<div class="part02-button part16-button-02 part02-radius-animation" data-temp="part16-car-kehu,2,1"></div>-->
+            <!--<div class="part02-button part16-button-03 part02-radius-animation" data-temp="part16-car-friend,3,2"></div>-->
+        <!--</div>-->
+
+        <!--<div class="part16-people">-->
+            <!--<img src="images/part16_04_01.png"/>-->
+            <!--<img src="images/part16_04_02.png"/>-->
+            <!--<img src="images/part16_04_03.png"/>-->
+        <!--</div>-->
+
+        <!--<div class="part16-car">-->
+            <!--<img src="images/part16_03.png"/>-->
+        <!--</div>-->
+
+        <!--<div class="partJiantou part16Prev">-->
+            <!--<img src="images/jiantou.png"/>-->
+            <!--<img src="images/jiantou.png" style="margin-left: -7px;"/>-->
+            <!--<img src="images/jiantou.png"  style="margin-left: -7px;"/>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+<div class="partx page hide fadeIn">
     <div class="wrapper">
-        <div class="tc part02-title"><img src="images/part16_01.png"/></div>
-        <div class="tc part16-phone">
-            <img src="images/part16_02.png"/>
-            <div class="part02-button part02-radius-animation" data-temp="part16-car-home,1.5,0"></div>
-            <div class="part02-button part16-button-02 part02-radius-animation" data-temp="part16-car-kehu,2,1"></div>
-            <div class="part02-button part16-button-03 part02-radius-animation" data-temp="part16-car-friend,3,2"></div>
+        <div class="tc partx-phone" id="partx-phone" id="parxTplDest">
         </div>
-
-        <div class="part16-people">
-            <img src="images/part16_04_01.png"/>
-            <img src="images/part16_04_02.png"/>
-            <img src="images/part16_04_03.png"/>
-        </div>
-
-        <div class="part16-car">
-            <img src="images/part16_03.png"/>
-        </div>
-
-        <div class="partJiantou part16Prev">
-            <img src="images/jiantou.png"/>
-            <img src="images/jiantou.png" style="margin-left: -7px;"/>
-            <img src="images/jiantou.png"  style="margin-left: -7px;"/>
-        </div>
-
     </div>
 </div>
+
+<script type="text/html" id="parxTpl">
+    <div style="height: 1px;"></div>
+    <div class="tl partx_dizhi">您选乘的是[%=data[2]%]，地点从[%=data[0]%]到[%=data[1]%]。</div>
+    <table>
+        <tr>
+            <td>一键叫车</td>
+            <td>[%=data[2]%]</td>
+            <td>[%=data[3]%]</td>
+            <td>[%=data[4]%]</td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
+            <td class="partx_pay">
+                [% for(var i=5;i<12;i++){%]
+                <p>[%=data[i]%]元</p>
+                [%}%]
+            </td>
+        </tr>
+    </table>
+</script>
 
 <script type="text/javascript" src="http://item.koudai.com/js/jquery.js"></script>
 <script type="text/javascript" src="http://item.koudai.com/js/require.js"></script>

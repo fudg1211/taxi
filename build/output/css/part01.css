@@ -34,7 +34,7 @@
 }
 
 .part01-desc{
-    background: url(../images/index_02.png?v=0709235454) no-repeat;
+    background: url(../images/index_02.png?v=123) no-repeat;
     width: 403px;
     height: 351px;
     top: 411px;
@@ -54,7 +54,7 @@
 
 /*********part02***********/
 .part02{
-    background: url(../images/part02_01.jpg?v=0709235454) no-repeat center 100px;
+    background: url(../images/part02_01.jpg?v=123) no-repeat center 100px;
 }
 
 
@@ -189,7 +189,7 @@
 
 /*********part03***********/
 .part03{
-    background: url(../images/part03_01.jpg?v=0709235454) no-repeat center top;
+    background: url(../images/part03_01.jpg?v=123) no-repeat center top;
 }
 
 .part03-title{
@@ -304,7 +304,7 @@
 
 /*********part16***********/
 .part16{
-    background: url(../images/part16_05.jpg?v=0709235454) no-repeat center top;
+    background: url(../images/part16_05.jpg?v=123) no-repeat center top;
 }
 
 
@@ -315,7 +315,6 @@
     width: 100%;
     opacity: 0;
     -webkit-animation:part16-phone 2s ease 0s 1 normal forwards;
-
 }
 
 @-webkit-keyframes part16-phone{
@@ -404,6 +403,70 @@
 }
 
 
+
+/*********partX***********/
+.partx{
+    background: url(../images/partx_bg.jpg);
+    font-size: 21px;
+    color: #4B4B4B;
+}
+
+.partx-phone{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: relative;
+    background:url(../images/partx_01.png) no-repeat center top;
+    -webkit-animation:partx-phone 2s ease 0s 1 normal forwards;
+}
+
+@-webkit-keyframes partx-phone{
+    0.01%{
+        opacity: 0;
+        -webkit-transform:translate(0,130px);
+    }
+
+    100%{
+        opacity: 1;
+        -webkit-transform:translate(0,83px);
+    }
+}
+
+.partx_dizhi{
+    width: 498px;
+    margin: auto;
+    margin-top: 85px;
+}
+
+
+.partx-phone table{
+    width: 495px;
+    margin: auto;
+    margin-top: 75px;
+}
+
+
+td{
+    text-align: center;
+    width: 25%;
+}
+
+td p{
+    text-align: right;
+    padding-right: 6px;
+    height: 58px;
+}
+
+.partx_pay{
+    padding-top: 50px;
+    font-size: 25px;
+}
+
+
 .wrapper{
     /*margin-top: -200px;*/
 }
+

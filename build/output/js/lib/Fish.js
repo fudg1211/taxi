@@ -256,6 +256,11 @@
 
 				var match = key.match(this.eventSplitter);
 				var eventName = match[1], selector = match[2];
+
+                if(document.body.ontouchstart===null && eventName==='click'){
+                    eventName='touchstart';
+                }
+
 				if (selector === '') {
 					this.el.bind(eventName, method);
 				} else {

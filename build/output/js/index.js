@@ -5,18 +5,21 @@
  * Time: AM10:48
  * To change this template use File | Settings | File Templates.
  */
-define(['./global/global'], function (g) {
+define(['./global/global','./data/data'], function (g,data) {
     var part16Timeout;
 
 	var IndexController = FishMVC.View.extend({
 		init: function () {
             var self = this;
             this.doJiantou();
+
+            this.initPartx();
 		},
 		elements: {
             '.J_nextPage':'nextPage',
             '.J_part02_position':'part02Position',
             '#part02Zhizheng':'part02Zhizheng',
+
             '#part03Next':'part03Next',
             '#part03Car':'part03Car',
             '.part03-cart .img':'cartImg',
@@ -24,24 +27,35 @@ define(['./global/global'], function (g) {
             '.touchslider-item img':'touchsliderItemImg',
             '.part03Prev img':'part03Prev',
             '.part03Next img':'part03Next',
+
             '.partJiantou img':'partJiantou',
+
+
             '.part16-phone .part02-button':'part16PhoneButton',
             '.part16-car img':'part16Car',
-            '.part16-people img':'part16People'
+            '.part16-people img':'part16People',
+
+
+            '#J_part02_position':'J_part02_position_rel',
+            '.touchslider-nav-item-current':'touchslider-nav-item-current_rel'
 		},
 		events: {
-            'touchstart nextPage':'doNextPage',
-            'touchstart part02Position':'doPart02Position',
-            'touchstart part03Next':'doPart03Next',
-            'touchstart part16PhoneButton':'doPart16PhoneButton'
+            'click nextPage':'doNextPage',
+            'click part02Position':'doPart02Position',
+            'click part03Next':'doPart03Next',
+            'click part16PhoneButton':'doPart16PhoneButton'
 		},
 
         doNextPage:function(target){
             var pageObj = target.parents('.page'),
                 nexPageObj = pageObj.next();
 
-            if(nexPageObj.hasClass('part03')){
+            if(nexPageObj && nexPageObj.length && nexPageObj.hasClass('part03')){
                 this['initPart03']();
+            }
+
+            if(nexPageObj && nexPageObj.length && nexPageObj.hasClass('partx')){
+                this['initPartx']();
             }
 
             if(nexPageObj && nexPageObj.length && nexPageObj[0].nodeName.toLocaleLowerCase()!=='script'){
@@ -54,6 +68,8 @@ define(['./global/global'], function (g) {
             var c = target.data('xy'),
                 self = this,
                 translate = 'translate('+c[0]+'px,'+c[1]+'px)';
+            this['J_part02_position_rel']().removeAttr('id');
+            target.attr('id','J_part02_position');
             this['part02Zhizheng'].css({'opacity':1,'-webkit-animation':'none'});
             setTimeout(function(){
                 self['part02Zhizheng'].css('-webkit-transform',translate);
@@ -79,6 +95,19 @@ define(['./global/global'], function (g) {
             $(".touchslider").touchSlider({/*options*/});
 
             this.doPart03Jiantou();
+        },
+
+        initPartx:function(){
+            var from = this['J_part02_position_rel']().attr('title') || '东直门',
+                car = this['touchslider-nav-item-current_rel']().attr('title') || '特拉斯';
+
+            var tempData = data.getPrice(from,car),
+                html = new EJS({element:"parxTpl"}).render({data:tempData});
+
+            console.log(tempData);
+            console.log(html);
+
+            $('#partx-phone').html(html);
         },
 
         doPart03Jiantou:function(){
@@ -127,7 +156,6 @@ define(['./global/global'], function (g) {
             self.part16People.fadeIn('fast');
 
             self.part16Car.css('-webkit-transition','-webkit-transform 0s ease-out');
-
 
             self.part16Car.removeClass();
 
