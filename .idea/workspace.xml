@@ -31,8 +31,8 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12068965" vertical-offset="1730" max-vertical-offset="3090">
-              <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="126" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.76724136" vertical-offset="2855" max-vertical-offset="4500">
+              <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#img#1;n#div#2;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#2;n#div#2;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -40,9 +40,27 @@
                 <element signature="n#style#0;n#img#2;n#div#3;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#2;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#1;n#div#4;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#2;n#div#4;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#1;n#div#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#2;n#div#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#1;n#div#0;n#div#1;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#2;n#div#0;n#div#1;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#1;n#div#1;n#div#1;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#2;n#div#1;n#div#1;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#1;n#div#0;n#div#1;n#div#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#2;n#div#0;n#div#1;n#div#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#1;n#div#4;n#div#0;n#div#11;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#2;n#div#4;n#div#0;n#div#11;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="43.96154" vertical-offset="2133" max-vertical-offset="3450">
+              <caret line="66" column="24" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -50,8 +68,8 @@
       <file leaf-file-name="part01.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/part01.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.230769" vertical-offset="8677" max-vertical-offset="9285">
-              <caret line="591" column="8" selection-start-line="591" selection-start-column="4" selection-end-line="591" selection-end-column="8" />
+            <state vertical-scroll-proportion="-8.384615" vertical-offset="9757" max-vertical-offset="10980">
+              <caret line="665" column="51" selection-start-line="665" selection-start-column="51" selection-end-line="665" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -60,7 +78,7 @@
       <file leaf-file-name="animation.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/global/animation.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="131" max-vertical-offset="5220">
+            <state vertical-scroll-proportion="0.0" vertical-offset="416" max-vertical-offset="5220">
               <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="34" selection-end-column="5" />
               <folding />
             </state>
@@ -85,7 +103,6 @@
         <option value="$PROJECT_DIR$/build/output/css/public/public.css" />
         <option value="$PROJECT_DIR$/slider.html" />
         <option value="$PROJECT_DIR$/css/global/global.css" />
-        <option value="$PROJECT_DIR$/css/public/public.css" />
         <option value="$PROJECT_DIR$/build/build.xml" />
         <option value="$PROJECT_DIR$/css/test.css" />
         <option value="$PROJECT_DIR$/css/global/animation.css" />
@@ -98,9 +115,10 @@
         <option value="$PROJECT_DIR$/js/lib/slider.js" />
         <option value="$PROJECT_DIR$/js/lib/Fish.js" />
         <option value="$PROJECT_DIR$/js/lib/require.js" />
+        <option value="$PROJECT_DIR$/css/public/public.css" />
         <option value="$PROJECT_DIR$/js/index.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/part01.css" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -222,42 +240,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aaTaxi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aaTaxi" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aaTaxi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aaTaxi" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="global" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -546,12 +528,12 @@
       <workItem from="1404995778026" duration="8311000" />
       <workItem from="1405041306126" duration="284000" />
       <workItem from="1405086568453" duration="5957000" />
-      <workItem from="1405148440289" duration="5878000" />
+      <workItem from="1405148440289" duration="12319000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82711000" />
+    <option name="totallyTimeSpent" value="89152000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="724" extended-state="6" />
@@ -571,6 +553,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -583,7 +566,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -716,13 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.7360406" vertical-offset="675" max-vertical-offset="1890">
           <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/public/public.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1986755" vertical-offset="0" max-vertical-offset="795">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -909,14 +884,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.3846154" vertical-offset="2328" max-vertical-offset="3465">
-          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/part16_02.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -935,18 +902,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/public/public.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="43.96154" vertical-offset="2133" max-vertical-offset="3450">
+          <caret line="66" column="24" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/part01.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.230769" vertical-offset="8677" max-vertical-offset="9285">
-          <caret line="591" column="8" selection-start-line="591" selection-start-column="4" selection-end-line="591" selection-end-column="8" />
+        <state vertical-scroll-proportion="-8.384615" vertical-offset="9757" max-vertical-offset="10980">
+          <caret line="665" column="51" selection-start-line="665" selection-start-column="51" selection-end-line="665" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12068965" vertical-offset="1730" max-vertical-offset="3090">
-          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="126" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.76724136" vertical-offset="2855" max-vertical-offset="4500">
+          <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#img#1;n#div#2;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#2;n#div#2;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -954,8 +937,16 @@
             <element signature="n#style#0;n#img#2;n#div#3;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#1;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#2;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#div#4;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#2;n#div#4;n#div#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#div#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#2;n#div#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#div#0;n#div#1;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#2;n#div#0;n#div#1;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#div#1;n#div#1;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#2;n#div#1;n#div#1;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#div#0;n#div#1;n#div#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#2;n#div#0;n#div#1;n#div#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#div#4;n#div#0;n#div#11;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#2;n#div#4;n#div#0;n#div#11;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

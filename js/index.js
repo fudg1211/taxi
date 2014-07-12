@@ -15,7 +15,10 @@ define(['./global/global','./data/data'], function (g,data) {
 
             this.initPartx();
             this.initTouch();
-		},
+
+            this['initPart03']();
+
+        },
 
         initTouch:function(){
             var y = 0,minDistance=50,h = $('body').height();
@@ -85,10 +88,6 @@ define(['./global/global','./data/data'], function (g,data) {
         doNextPage:function(target){
             var pageObj = target.parents('.page'),
                 nexPageObj = pageObj.next();
-
-            if(nexPageObj && nexPageObj.length && nexPageObj.hasClass('part03')){
-                this['initPart03']();
-            }
 
             if(nexPageObj && nexPageObj.length && nexPageObj.hasClass('partx')){
                 this['initPartx']();

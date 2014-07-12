@@ -519,7 +519,7 @@ td p{
 .part05{
     background: url(../images/partx_bg.jpg);
     font-size: 21px;
-    color: #4B4B4B;
+    color: #fff;
 }
 
 .part05-text{
@@ -529,6 +529,7 @@ td p{
     width: 100%;
     height: 100%;
     opacity: 0;
+    color: #ffffff;
     background:url(../images/part05_01.png) no-repeat center top;
     -webkit-animation:part05-text 2s ease 0s 1 normal forwards;
 }
@@ -548,7 +549,7 @@ td p{
 
 .part05 .part16Prev{
 
-    bottom:55px;
+    bottom:60px;
 }
 
 .partJiantou-text{
@@ -606,8 +607,120 @@ td p{
 }
 
 
+/*********part07 start***********/
+.part07{
+    font-size: 21px;
+    color: #ffffff;
+}
+
+.part07-bg{
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../images/part07_01.jpg) no-repeat center top;
+    -webkit-animation:part07-bg 2s ease 0s 1 normal forwards;
+}
+
+@-webkit-keyframes part07-bg{
+    from{
+        opacity: 0;
+        -webkit-transform:translate(0,-80px);
+    }
+    to{
+        opacity: 1;
+        -webkit-transform:translate(0,0);
+    }
+}
+
+.part07 .part16Prev {
+    bottom: 60px;
+}
+
+
+
+/*********part08 start***********/
+.part08-bg{
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../images/part08_01.jpg) no-repeat center top;
+    -webkit-animation:part08-bg 1.5s ease 0s 1 normal forwards;
+}
+
+@-webkit-keyframes part08-bg{
+    from{
+        opacity: 0;
+        -webkit-transform:translate(0,50px);
+    }
+    to{
+        opacity: 1;
+        -webkit-transform:translate(0,0);
+    }
+}
+
+.part09 .radius-animation,.part08 .radius-animation {
+    -webkit-animation: radius-animation linear 2s 1s infinite;
+}
+.part09 .part02-button,.part08 .part02-button {
+    width: 112px;
+    height: 112px;
+    border-radius: 56px;
+    position: absolute;
+    left: 50%;
+    margin-left: -57px;
+    top: 630px;
+}
+
+
+/*********part09 start***********/
+
+.part09{
+    color: #fff;
+    font-size: 21px;
+}
+
+.part09-peizhi{
+    position: absolute;
+    left: 0;
+    top:235px;
+    height: 250px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.5);
+    padding-top:55px;
+}
+
+.part09-peizhi .text{
+    display: none;
+}
+
+
+.part09-desc{
+    position: absolute;
+    left: 0;
+    top: -36px;
+    width: 100%;
+}
+
+.part9Prev01{
+    position: absolute;
+    left: 22px;
+    top: 365px;
+    -webkit-transform:rotate(180deg);
+}
+
+.part9Prev02{
+    position: absolute;
+    right: 22px;
+    top: 365px;
+    -webkit-transform:rotate(0deg);
+}
+
 
 .wrapper{
-    /*margin-top: -300px;*/
+    /*margin-top: -200px;*/
 }
 
