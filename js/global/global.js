@@ -8,8 +8,8 @@
 
 
 
-define(['./common','./configs', './storage', './hack'], function (common,configs, storage, hack) {
+define(['./common','./configs', './storage'], function (common,configs, storage) {
 	var g = {};
-	$.extend(g,common,configs,storage,hack);
+	$.extend(g,common,configs,storage);
 	return g;
 });

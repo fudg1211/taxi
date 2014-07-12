@@ -10,7 +10,6 @@ define(['./common'],function (com) {
 		UA = window.navigator.userAgent,
 		href = window.location.href,
 		$ = window.$,
-		browserV = $.browser.version.toString(),
 		body = $('#body');
 
 

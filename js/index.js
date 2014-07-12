@@ -14,7 +14,43 @@ define(['./global/global','./data/data'], function (g,data) {
             this.doJiantou();
 
             this.initPartx();
+            this.initTouch();
 		},
+
+        initTouch:function(){
+            var y = 0,minDistance=50,h = $('body').height();
+            $('.page').on('touchstart',function(event){
+                y = event.originalEvent.pageY;
+                event.preventDefault();
+            }).on('touchend',function(event){
+                event.preventDefault();
+            }).on('touchmove',function(event){
+                var tempY = event.originalEvent.pageY,
+                    distance = tempY - y;
+                if(Math.abs(distance)>minDistance){
+                    var nexPageObj;
+                    if(distance<0){
+                        nexPageObj = $(this).next();
+                        if(nexPageObj && nexPageObj.length && nexPageObj[0].nodeName.toLocaleLowerCase()!=='script'){
+                            $(this).hide();
+                            nexPageObj.show();
+                        }
+                    }else{
+                        nexPageObj = $(this).prev();
+                        if(nexPageObj && nexPageObj.length && nexPageObj.hasClass('page')){
+                            $(this).hide();
+                            nexPageObj.show();
+                        }
+                    }
+                }
+
+
+                event.preventDefault();
+
+            });
+        },
+
+
 		elements: {
             '.J_nextPage':'nextPage',
             '.J_part02_position':'part02Position',
@@ -28,7 +64,7 @@ define(['./global/global','./data/data'], function (g,data) {
             '.part03Prev img':'part03Prev',
             '.part03Next img':'part03Next',
 
-            '.partJiantou img':'partJiantou',
+            '.partJiantou':'partJiantou',
 
 
             '.part16-phone .part02-button':'part16PhoneButton',
@@ -104,8 +140,6 @@ define(['./global/global','./data/data'], function (g,data) {
             var tempData = data.getPrice(from,car),
                 html = new EJS({element:"parxTpl"}).render({data:tempData});
 
-            console.log(tempData);
-            console.log(html);
 
             $('#partx-phone').html(html);
         },
@@ -123,23 +157,24 @@ define(['./global/global','./data/data'], function (g,data) {
                 if(i>2){
                     i=0;
                 }
-                console.log(i);
 
             }),300)
         },
 
         doJiantou:function(){
-            var self = this;
-            var i = 0;
+            var self = this,i = 0,img;
             setInterval((function(){
-                self['partJiantou'].css('opacity',0.5);
-                self['partJiantou'].eq(i).css('opacity',1);
+                self['partJiantou'].each(function(k,v){
+                    img = $(v).children('img');
+                    img.css('opacity',0.5);
+                    img.eq(i).css('opacity',1);
+                });
+
                 i++;
 
                 if(i>2){
                     i=0;
                 }
-
             }),300)
         },
 

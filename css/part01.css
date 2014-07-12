@@ -466,7 +466,148 @@ td p{
 }
 
 
+
+
+
+/*********part04 start***********/
+.part04{
+    background:url(../images/guangyin.png) no-repeat center top;
+}
+
+.part04-email{
+    background:url(../images/part04_01.png) no-repeat;
+    width: 238px;
+    height: 170px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    opacity: 0;
+    -webkit-animation:part04-email 2s ease 0s 1 normal forwards;
+}
+
+
+@-webkit-keyframes part04-email{
+    0.01%{
+        opacity: 0;
+        -webkit-transform:translate(215px,400px);
+    }
+
+    100%{
+        opacity: 1;
+        -webkit-transform:translate(215px,317px);
+    }
+}
+
+
+.part04 .part02-button {
+    width: 59px;
+    height: 59px;
+    border-radius: 30px;
+    position: absolute;
+    left: auto;
+    right: 1px;
+    top: 0;
+}
+
+.part04 .radius-animation{
+    -webkit-animation: radius-animation linear 2s 1s infinite;
+}
+
+
+
+/*********part05 start***********/
+.part05{
+    background: url(../images/partx_bg.jpg);
+    font-size: 21px;
+    color: #4B4B4B;
+}
+
+.part05-text{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background:url(../images/part05_01.png) no-repeat center top;
+    -webkit-animation:part05-text 2s ease 0s 1 normal forwards;
+}
+
+
+@-webkit-keyframes part05-text{
+    0.01%{
+        opacity: 0;
+        -webkit-transform:translate(0,320px);
+    }
+
+    100%{
+        opacity: 1;
+        -webkit-transform:translate(0,264px);
+    }
+}
+
+.part05 .part16Prev{
+
+    bottom:55px;
+}
+
+.partJiantou-text{
+    text-align: center;
+    width: 630px;
+    position: absolute;
+    left: 0;
+    bottom:20px;
+    padding-left: 10px;
+}
+
+
+/*********part06 start***********/
+.part06{
+    background-color: #000403;
+}
+
+.part06-bg{
+    left: 0;
+    top: 0;
+    position: absolute;
+    -webkit-animation:part06-bg 3.5s ease 0s 1 normal forwards;
+}
+
+@-webkit-keyframes part06-bg{
+    from{
+        opacity: 0;
+        -webkit-transform:translate(-50px,0);
+    }
+    to{
+        opacity: 1;
+        -webkit-transform:translate(0,0);
+    }
+}
+
+.part06-desc{
+    background: url(../images/part06_02.png?v=123) no-repeat;
+    width: 403px;
+    height: 351px;
+    top: 587px;
+    left: 262px;
+    position: absolute;
+    -webkit-animation:part06-desc 2.5s ease 0s 1 normal forwards;
+}
+
+@-webkit-keyframes part06-desc{
+    from{
+        opacity: 0;
+        -webkit-transform:translate(0,178px);
+    }
+    to{
+        opacity: 1;
+        -webkit-transform:translate(0,0);
+    }
+}
+
+
+
 .wrapper{
-    /*margin-top: -200px;*/
+    /*margin-top: -300px;*/
 }
 

@@ -249,6 +249,7 @@
 						if(!tempethod){
 							console.log('未找到方法');
 						}
+
 						tempethod($(this),event);
 					};
 				}(tempethod));
@@ -264,13 +265,8 @@
 				if (selector === '') {
 					this.el.bind(eventName, method);
 				} else {
-					if (selector.search(/_rel$/) !== -1) {
-						selector = this[selector+'Selector'];
-					}
 
-					if(this[selector] && this[selector].length){
-						this.el.delegate((this[selector] && this[selector]['selector']) ? this[selector]['selector'] : selector, eventName, method);
-					}
+						this.el.delegate(this[selector+'_key'], eventName, method);
 				}
 			}
 		},
@@ -280,9 +276,13 @@
 			var self = this;
 			for (var key in this.elements) {
 
+
 				var keyName = this.elements[key];
 
-				if (keyName.search(/_rel$/) !== -1) {
+                this[keyName+'_key'] = key;
+
+
+                if (keyName.search(/_rel$/) !== -1) {
 					this[keyName+'Selector'] = key;
 
 					var name = keyName.replace(/_rel$/, '');
