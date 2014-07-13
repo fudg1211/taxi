@@ -76,13 +76,22 @@ define(['./global/global','./data/data'], function (g,data) {
 
 
             '#J_part02_position':'J_part02_position_rel',
-            '.touchslider-nav-item-current':'touchslider-nav-item-current_rel'
+            '.touchslider-nav-item-current':'touchslider-nav-item-current_rel',
+
+
+            '#part15Left':'part15Left',
+            '#part15Right':'part15Right',
+            '#part15FeijiLeft':'part15FeijiLeft',
+            '#part15FeijiRight':'part15FeijiRight',
+            '.part15-feiji':'part15Feiji'
 		},
 		events: {
             'click nextPage':'doNextPage',
             'click part02Position':'doPart02Position',
             'click part03Next':'doPart03Next',
-            'click part16PhoneButton':'doPart16PhoneButton'
+            'click part16PhoneButton':'doPart16PhoneButton',
+            'click part15Left':'doPart15Left',
+            'click part15Right':'doPart15Right'
 		},
 
         doNextPage:function(target){
@@ -218,6 +227,30 @@ define(['./global/global','./data/data'], function (g,data) {
                 },Number(temp[1])*1000);
 
             },400);
+        },
+
+        doPart15Left:function(){
+            var self = this;
+            this['part15Feiji'].css('opacity',0);
+            this['part15FeijiLeft'].css('-webkit-transition','-webkit-transform 0s linear');
+            this['part15FeijiLeft'].css('-webkit-transform','translate(-100px,0)');
+            setTimeout(function(){
+                self['part15FeijiLeft'].css('opacity',1);
+                self['part15FeijiLeft'].css('-webkit-transition','-webkit-transform 2s linear');
+                self['part15FeijiLeft'].css('-webkit-transform','translate(1160px,0)');
+            },200)
+        },
+
+        doPart15Right:function(){
+            var self = this;
+            this['part15Feiji'].css('opacity',0);
+            this['part15FeijiRight'].css('-webkit-transition','-webkit-transform 0s linear');
+            this['part15FeijiRight'].css('-webkit-transform','translate(100px,0)');
+            setTimeout(function(){
+                self['part15FeijiRight'].css('opacity',1);
+                self['part15FeijiRight'].css('-webkit-transition','-webkit-transform 2s linear');
+                self['part15FeijiRight'].css('-webkit-transform','translate(-1160px,0)');
+            },200)
         }
 
 	});
