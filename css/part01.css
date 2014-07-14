@@ -564,7 +564,7 @@ td p{
 
 /*********part06 start***********/
 .part06{
-    background-color: #000403;
+    background-color: #000403 !important;
 }
 
 .part06-bg{

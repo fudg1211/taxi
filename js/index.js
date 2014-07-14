@@ -20,29 +20,87 @@ define(['./global/global','./data/data'], function (g,data) {
 
         },
 
-        initTouch:function(){
-            var y = 0,minDistance=50,h = $('body').height();
-            $('.page').on('touchstart',function(event){
+        initTouch: function () {
+            var y = 0,
+                x = 0,
+                minDistance = 30,
+                h = $('body').height(),
+                isStart = false,
+                bodyHeight = $('body').height(),
+                canMoveNext = false,
+                canMovePrev =false,
+                direction,
+                nexPageObj,
+                prevPageObj;
+            $('.page').on('touchstart', function (event) {
+                isStart = false;
+                canMoveNext = false;
+                canMovePrev = false;
+                direction = false;
                 y = event.originalEvent.pageY;
+                x = event.originalEvent.pageX;
+
+                if ($(this).hasClass('J_touch')) {
+                    nexPageObj = $(this).next();
+                    canMoveNext = true;
+                }
+
+                prevPageObj = $(this).prev();
+                if (prevPageObj && prevPageObj.length && prevPageObj.hasClass('page')) {
+                    canMovePrev = true;
+                }
+
                 event.preventDefault();
-            }).on('touchend',function(event){
+            }).on('touchend', function (event) {
+                var self = this;
                 event.preventDefault();
-            }).on('touchmove',function(event){
+
+                if(isStart && direction){
+                    setTimeout(function(){
+                        $(self).hide().css('z-index',0);
+                    },300);
+                }
+
+
+                    if (isStart && direction=='up'){
+
+                        nexPageObj.animate({top:0},'fast');
+                    }
+
+                if(isStart && direction=='down'){
+                    prevPageObj.animate({top:0},'fast');
+                }
+
+            }).on('touchmove', function (event) {
                 var tempY = event.originalEvent.pageY,
-                    distance = tempY - y;
-                if(Math.abs(distance)>minDistance){
-                    var nexPageObj;
-                    if(distance<0){
-                        nexPageObj = $(this).next();
-                        if(nexPageObj && nexPageObj.length && nexPageObj[0].nodeName.toLocaleLowerCase()!=='script'){
-                            $(this).hide();
-                            nexPageObj.show();
+                    tempX = event.originalEvent.pageX,
+                    distanceY = tempY - y,
+                    distanceX = tempX - x;
+
+
+                if (Math.abs(distanceY) > minDistance && (isStart || Math.abs(distanceY) > Math.abs(distanceX))) {
+
+                    if(!isStart && distanceY<0 && canMoveNext){
+                        prevPageObj.add($(this)).css({'z-index':0});
+                        nexPageObj.show().css({'z-index':10});
+                    }
+
+                    if(!isStart && distanceY>=0 && canMovePrev){
+                        prevPageObj.show().css({'z-index':10});
+                        nexPageObj.add($(this)).css({'z-index':0});
+                    }
+
+                    isStart = true;
+
+                    if (distanceY < 0) {
+                        if (canMoveNext) {
+                            direction = 'up';
+                            nexPageObj.show().css('top', bodyHeight+distanceY)
                         }
-                    }else{
-                        nexPageObj = $(this).prev();
-                        if(nexPageObj && nexPageObj.length && nexPageObj.hasClass('page')){
-                            $(this).hide();
-                            nexPageObj.show();
+                    } else {
+                        if(canMovePrev){
+                            direction = 'down';
+                            prevPageObj.css({'top':distanceY-bodyHeight});
                         }
                     }
                 }
@@ -103,6 +161,7 @@ define(['./global/global','./data/data'], function (g,data) {
             }
 
             if(nexPageObj && nexPageObj.length && nexPageObj[0].nodeName.toLocaleLowerCase()!=='script'){
+                pageObj.prev().hide();
                 pageObj.hide();
                 nexPageObj.show();
             }
