@@ -1,10 +1,339 @@
-define(["./global/global","./data/data"],function(m,k){var d;new (FishMVC.View.extend({init:function(){this.doJiantou();this.initPartx();this.initTouch();this.initPart03()},initTouch:function(){var a=0,b=0;$("body").height();var c=!1,d=$("body").height(),i=!1,j=!1,g,h,e;$(".page").on("touchstart",function(d){g=j=i=c=!1;a=d.originalEvent.pageY;b=d.originalEvent.pageX;$(this).hasClass("J_touch")&&(h=$(this).next(),i=!0);(e=$(this).prev())&&e.length&&e.hasClass("page")&&(j=!0);d.preventDefault()}).on("touchend",
-function(a){var b=this;a.preventDefault();c&&g&&setTimeout(function(){$(b).hide().css("z-index",0)},300);c&&g=="up"&&h.animate({top:0},"fast");c&&g=="down"&&e.animate({top:0},"fast")}).on("touchmove",function(l){var f=l.originalEvent.pageY-a,k=l.originalEvent.pageX-b;if(Math.abs(f)>30&&(c||Math.abs(f)>Math.abs(k)))!c&&f<0&&i&&(e.add($(this)).css({"z-index":0}),h.show().css({"z-index":10})),!c&&f>=0&&j&&(e.show().css({"z-index":10}),h.add($(this)).css({"z-index":0})),c=!0,f<0?i&&(g="up",h.show().css("top",
-d+f)):j&&(g="down",e.css({top:f-d}));l.preventDefault()})},elements:{".J_nextPage":"nextPage",".J_part02_position":"part02Position","#part02Zhizheng":"part02Zhizheng","#part03Next":"part03Next","#part03Car":"part03Car",".part03-cart .img":"cartImg",".part03-desc .img":"cartImgDesc",".touchslider-item img":"touchsliderItemImg",".part03Prev img":"part03Prev",".part03Next img":"part03Next",".partJiantou":"partJiantou",".part16-phone .part02-button":"part16PhoneButton",".part16-car img":"part16Car",".part16-people img":"part16People",
-"#J_part02_position":"J_part02_position_rel",".touchslider-nav-item-current":"touchslider-nav-item-current_rel","#part15Left":"part15Left","#part15Right":"part15Right","#part15FeijiLeft":"part15FeijiLeft","#part15FeijiRight":"part15FeijiRight",".part15-feiji":"part15Feiji"},events:{"click nextPage":"doNextPage","click part02Position":"doPart02Position","click part03Next":"doPart03Next","click part16PhoneButton":"doPart16PhoneButton","click part15Left":"doPart15Left","click part15Right":"doPart15Right"},
-doNextPage:function(a){var a=a.parents(".page"),b=a.next();b&&b.length&&b.hasClass("partx")&&this.initPartx();b&&b.length&&b[0].nodeName.toLocaleLowerCase()!=="script"&&(a.prev().hide(),a.hide(),b.show())},doPart02Position:function(a){var b=a.data("xy"),c=this,d="translate("+b[0]+"px,"+b[1]+"px)";this.J_part02_position_rel().removeAttr("id");a.attr("id","J_part02_position");this.part02Zhizheng.css({opacity:1,"-webkit-animation":"none"});setTimeout(function(){c.part02Zhizheng.css("-webkit-transform",
-d)},100)},doPart03Next:function(){var a=this.part03Car.next();if(a.attr("class")!=="img")return!1;this.part03Car.hide().removeAttr("id");a.show().attr("id","part03Car")},initPart03:function(){this.touchsliderItemImg.show();$(".touchslider").touchSlider({});this.doPart03Jiantou()},initPartx:function(){var a=this.J_part02_position_rel().attr("title")||"\u4e1c\u76f4\u95e8",b=this["touchslider-nav-item-current_rel"]().attr("title")||"\u7279\u62c9\u65af",a=k.getPrice(a,b),a=(new EJS({element:"parxTpl"})).render({data:a});
-$("#partx-phone").html(a)},doPart03Jiantou:function(){var a=this,b=0;setInterval(function(){a.part03Prev.css("opacity",0.5);a.part03Next.css("opacity",0.5);a.part03Prev.eq(b).css("opacity",1);a.part03Next.eq(b).css("opacity",1);b++;b>2&&(b=0)},300)},doJiantou:function(){var a=this,b=0,c;setInterval(function(){a.partJiantou.each(function(a,d){c=$(d).children("img");c.css("opacity",0.5);c.eq(b).css("opacity",1)});b++;b>2&&(b=0)},300)},doPart16PhoneButton:function(a){var b=a.data("temp"),c=this,b=b.split(",");
-if(c.part16Car.hasClass(b[0]))return!1;clearTimeout(d);c.part16People.fadeIn("fast");c.part16Car.css("-webkit-transition","-webkit-transform 0s ease-out");c.part16Car.removeClass();d=setTimeout(function(){c.part16Car.css("-webkit-transition","-webkit-transform "+b[1]+"s ease-out")},200);d=setTimeout(function(){c.part16Car[0].className=b[0];d=setTimeout(function(){c.part16People.eq(b[2]).fadeOut("slow");c.part16Car.css("-webkit-transition","-webkit-transform "+3/Number(b[1])+"s ease-in");d=setTimeout(function(){c.part16Car[0].className=
-"part16-car-end";d=setTimeout(function(){c.part16People.eq(b[2]).fadeIn("fast");c.part16Car.removeClass().removeAttr("style")},3/Number(b[1])*1E3)},500)},Number(b[1])*1E3)},400)},doPart15Left:function(){var a=this;this.part15Feiji.css("opacity",0);this.part15FeijiLeft.css("-webkit-transition","-webkit-transform 0s linear");this.part15FeijiLeft.css("-webkit-transform","translate(-100px,0)");setTimeout(function(){a.part15FeijiLeft.css("opacity",1);a.part15FeijiLeft.css("-webkit-transition","-webkit-transform 2s linear");
-a.part15FeijiLeft.css("-webkit-transform","translate(1160px,0)")},200)},doPart15Right:function(){var a=this;this.part15Feiji.css("opacity",0);this.part15FeijiRight.css("-webkit-transition","-webkit-transform 0s linear");this.part15FeijiRight.css("-webkit-transform","translate(100px,0)");setTimeout(function(){a.part15FeijiRight.css("opacity",1);a.part15FeijiRight.css("-webkit-transition","-webkit-transform 2s linear");a.part15FeijiRight.css("-webkit-transform","translate(-1160px,0)")},200)}}))({el:$(".wrapper")})});
+/**
+ * Created with IntelliJ IDEA.
+ * User: fudongguang
+ * Date: 13-10-9
+ * Time: AM10:48
+ * To change this template use File | Settings | File Templates.
+ */
+define(['./global/global', './data/data'], function (g, data) {
+    var part16Timeout;
+
+    var IndexController = FishMVC.View.extend({
+        init: function () {
+            var self = this;
+            this.doJiantou();
+
+            this.initPartx();
+            this.initTouch();
+
+            this['initPart03']();
+
+        },
+
+        initTouch: function () {
+            var y = 0,
+                x = 0,
+                tempY = 0,
+                minDistance = 50,
+                isStart = false,
+                bodyHeight = $('body').height(),
+                canMoveNext = false,
+                canMovePrev = false,
+                direction,
+                nexPageObj,
+                prevPageObj,
+                currentShow,
+                isEnd = true;
+            $('body').on('touchstart', function (event) {
+                if (!isEnd) {
+                    return false;
+                }
+
+                isStart = false;
+                canMoveNext = false;
+                canMovePrev = false;
+                direction = false;
+                y = event.originalEvent.pageY;
+                x = event.originalEvent.pageX;
+                currentShow = $('#currentShow');
+
+                if (currentShow.hasClass('J_touch')) {
+                    nexPageObj = currentShow.next();
+                    nexPageObj.css('z-index', 10);
+                    canMoveNext = true;
+                }
+
+                prevPageObj = currentShow.prev();
+                if (prevPageObj && prevPageObj.length && prevPageObj.hasClass('page')) {
+                    canMovePrev = true;
+                    prevPageObj.css('z-index', 10);
+                }
+
+                event.preventDefault();
+            });
+            $('body').on('touchend', function (event) {
+
+                isEnd = true;
+
+                if(Math.abs(tempY - y)<250 && direction){
+                    prevPageObj.animate({top: '-100%'},'fast');
+                    nexPageObj.animate({top: '100%'},'fast');
+                    return;
+                }
+
+                if (isStart && direction) {
+                    currentShow.hide().css('z-index', 0).removeAttr('id');
+                }
+
+                if (isStart && direction == 'up') {
+
+                    nexPageObj.animate({top: 0}, 'fast').attr('id', 'currentShow').css('z-index',0);
+                }
+
+                if (isStart && direction == 'down') {
+                    prevPageObj.animate({top: 0}, 'fast').attr('id', 'currentShow').css('z-index',0);
+                }
+
+                event.preventDefault();
+
+
+            });
+
+            $('body').on('touchmove', function (event) {
+
+                tempY = event.originalEvent.pageY;
+
+                var tempX = event.originalEvent.pageX,
+                    distanceY = tempY - y,
+                    distanceX = tempX - x;
+
+                if (Math.abs(distanceY) > minDistance && (Math.abs(distanceY) > Math.abs(distanceX))) {
+
+
+                    isStart = true;
+                    isEnd = false;
+
+
+                    if (!direction) {
+                        if (distanceY < 0 && canMoveNext) {
+                            direction = 'up';
+                        }
+
+                        if (distanceY > 0 && canMovePrev) {
+                            direction = 'down';
+                        }
+                    }
+
+                    if (direction === 'up') {
+                        nexPageObj.show().css('top', bodyHeight + distanceY)
+                    }
+
+                    if (direction === 'down') {
+                        console.log(distanceY);
+                        prevPageObj.show().css('top',-bodyHeight+distanceY);
+                    }
+
+                }
+
+
+                event.preventDefault();
+
+            });
+        },
+
+
+        elements: {
+            '.J_nextPage': 'nextPage',
+            '.J_part02_position': 'part02Position',
+            '#part02Zhizheng': 'part02Zhizheng',
+
+            '#part03Next': 'part03Next',
+            '#part03Car': 'part03Car',
+            '.part03-cart .img': 'cartImg',
+            '.part03-desc .img': 'cartImgDesc',
+            '.touchslider-item img': 'touchsliderItemImg',
+            '.part03Prev img': 'part03Prev',
+            '.part03Next img': 'part03Next',
+
+            '.partJiantou': 'partJiantou',
+
+
+            '.part16-phone .part02-button': 'part16PhoneButton',
+            '.part16-car img': 'part16Car',
+            '.part16-people img': 'part16People',
+
+
+            '#J_part02_position': 'J_part02_position_rel',
+            '.touchslider-nav-item-current': 'touchslider-nav-item-current_rel',
+
+
+            '#part15Left': 'part15Left',
+            '#part15Right': 'part15Right',
+            '#part15FeijiLeft': 'part15FeijiLeft',
+            '#part15FeijiRight': 'part15FeijiRight',
+            '.part15-feiji': 'part15Feiji'
+        },
+        events: {
+            'click nextPage': 'doNextPage',
+            'click part02Position': 'doPart02Position',
+            'click part03Next': 'doPart03Next',
+            'click part16PhoneButton': 'doPart16PhoneButton',
+            'click part15Left': 'doPart15Left',
+            'click part15Right': 'doPart15Right'
+        },
+
+        doNextPage: function (target) {
+            var pageObj = target.parents('.page'),
+                nexPageObj = pageObj.next();
+
+            if (nexPageObj && nexPageObj.length && nexPageObj.hasClass('partx')) {
+                this['initPartx']();
+            }
+
+            if (nexPageObj && nexPageObj.length && nexPageObj[0].nodeName.toLocaleLowerCase() !== 'script') {
+                pageObj.prev().hide();
+                pageObj.hide();
+                $('#currentShow').removeAttr('id');
+
+                nexPageObj.show().attr('id', 'currentShow');
+            }
+        },
+
+        doPart02Position: function (target) {
+            var c = target.data('xy'),
+                self = this,
+                translate = 'translate(' + c[0] + 'px,' + c[1] + 'px)';
+            this['J_part02_position_rel']().removeAttr('id');
+            target.attr('id', 'J_part02_position');
+            this['part02Zhizheng'].css({'opacity': 1, '-webkit-animation': 'none'});
+            setTimeout(function () {
+                self['part02Zhizheng'].css('-webkit-transform', translate);
+            }, 100)
+        },
+
+        doPart03Next: function (target) {
+            var nexObj = this['part03Car'].next(),
+                nextClass = nexObj.attr('class');
+
+            if (nextClass !== 'img') {
+                return false;
+            }
+
+            this['part03Car'].hide().removeAttr('id');
+            nexObj.show().attr('id', 'part03Car');
+
+        },
+
+        initPart03: function () {
+            this.touchsliderItemImg.show();
+
+            $(".touchslider").touchSlider({/*options*/});
+
+            this.doPart03Jiantou();
+        },
+
+        initPartx: function () {
+            var from = this['J_part02_position_rel']().attr('title') || '东直门',
+                car = this['touchslider-nav-item-current_rel']().attr('title') || '特拉斯';
+
+            var tempData = data.getPrice(from, car),
+                html = new EJS({element: "parxTpl"}).render({data: tempData});
+
+
+            $('#partx-phone').html(html);
+        },
+
+        doPart03Jiantou: function () {
+            var self = this;
+            var i = 0;
+            setInterval((function () {
+                self['part03Prev'].css('opacity', 0.5);
+                self['part03Next'].css('opacity', 0.5);
+                self['part03Prev'].eq(i).css('opacity', 1);
+                self['part03Next'].eq(i).css('opacity', 1);
+                i++;
+
+                if (i > 2) {
+                    i = 0;
+                }
+
+            }), 300)
+        },
+
+        doJiantou: function () {
+            var self = this, i = 0, img;
+            setInterval((function () {
+                self['partJiantou'].each(function (k, v) {
+                    img = $(v).children('img');
+                    img.css('opacity', 0.5);
+                    img.eq(i).css('opacity', 1);
+                });
+
+                i++;
+
+                if (i > 2) {
+                    i = 0;
+                }
+            }), 300)
+        },
+
+        doPart16PhoneButton: function (target) {
+            var temp = target.data('temp'), self = this;
+            temp = temp.split(',');
+
+            if (self.part16Car.hasClass(temp[0])) {
+                return false;
+            }
+
+            clearTimeout(part16Timeout);
+
+            self.part16People.fadeIn('fast');
+
+            self.part16Car.css('-webkit-transition', '-webkit-transform 0s ease-out');
+
+            self.part16Car.removeClass();
+
+            part16Timeout = setTimeout(function () {
+                self.part16Car.css('-webkit-transition', '-webkit-transform ' + temp[1] + 's ease-out');
+            }, 200);
+
+            part16Timeout = setTimeout(function () {
+                self.part16Car[0].className = temp[0];
+
+                part16Timeout = setTimeout(function () {
+                    self.part16People.eq(temp[2]).fadeOut('slow');
+
+                    self.part16Car.css('-webkit-transition', '-webkit-transform ' + 3 / Number(temp[1]) + 's ease-in');
+
+                    part16Timeout = setTimeout(function () {
+                        self.part16Car[0].className = 'part16-car-end';
+
+                        part16Timeout = setTimeout(function () {
+                            self.part16People.eq(temp[2]).fadeIn('fast');
+                            self.part16Car.removeClass().removeAttr('style');
+                        }, 3 / Number(temp[1]) * 1000);
+
+                    }, 500);
+
+                }, Number(temp[1]) * 1000);
+
+            }, 400);
+        },
+
+        doPart15Left: function () {
+            var self = this;
+            this['part15Feiji'].css('opacity', 0);
+            this['part15FeijiLeft'].css('-webkit-transition', '-webkit-transform 0s linear');
+            this['part15FeijiLeft'].css('-webkit-transform', 'translate(-100px,0)');
+            setTimeout(function () {
+                self['part15FeijiLeft'].css('opacity', 1);
+                self['part15FeijiLeft'].css('-webkit-transition', '-webkit-transform 2s linear');
+                self['part15FeijiLeft'].css('-webkit-transform', 'translate(1160px,0)');
+            }, 200)
+        },
+
+        doPart15Right: function () {
+            var self = this;
+            this['part15Feiji'].css('opacity', 0);
+            this['part15FeijiRight'].css('-webkit-transition', '-webkit-transform 0s linear');
+            this['part15FeijiRight'].css('-webkit-transform', 'translate(100px,0)');
+            setTimeout(function () {
+                self['part15FeijiRight'].css('opacity', 1);
+                self['part15FeijiRight'].css('-webkit-transition', '-webkit-transform 2s linear');
+                self['part15FeijiRight'].css('-webkit-transform', 'translate(-1160px,0)');
+            }, 200)
+        }
+
+    });
+    var indexController = new IndexController({el: $('.wrapper')});
+});
