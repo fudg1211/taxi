@@ -24,15 +24,20 @@ define(['./global/global','./data/data'], function (g,data) {
             var y = 0,
                 x = 0,
                 minDistance = 30,
-                h = $('body').height(),
                 isStart = false,
                 bodyHeight = $('body').height(),
                 canMoveNext = false,
                 canMovePrev =false,
                 direction,
                 nexPageObj,
-                prevPageObj;
-            $('.page').on('touchstart', function (event) {
+                prevPageObj,
+                currentShow,
+                isEnd = true;
+            $('body').on('touchstart', function (event) {
+                if(!isEnd){
+                    return false;
+                }
+
                 isStart = false;
                 canMoveNext = false;
                 canMovePrev = false;
@@ -40,12 +45,14 @@ define(['./global/global','./data/data'], function (g,data) {
                 y = event.originalEvent.pageY;
                 x = event.originalEvent.pageX;
 
-                if ($(this).hasClass('J_touch')) {
-                    nexPageObj = $(this).next();
+                currentShow = $('#currentShow');
+
+                if (currentShow.hasClass('J_touch')) {
+                    nexPageObj = currentShow.next();
                     canMoveNext = true;
                 }
 
-                prevPageObj = $(this).prev();
+                prevPageObj = currentShow.prev();
                 if (prevPageObj && prevPageObj.length && prevPageObj.hasClass('page')) {
                     canMovePrev = true;
                 }
@@ -57,18 +64,19 @@ define(['./global/global','./data/data'], function (g,data) {
 
                 if(isStart && direction){
                     setTimeout(function(){
-                        $(self).hide().css('z-index',0);
-                    },300);
+                        currentShow.hide().css('z-index',0).removeAttr('id');
+                        isEnd = true;
+                    },500);
                 }
 
 
                     if (isStart && direction=='up'){
 
-                        nexPageObj.animate({top:0},'fast');
+                        nexPageObj.animate({top:0},'fast').attr('id','currentShow');
                     }
 
                 if(isStart && direction=='down'){
-                    prevPageObj.animate({top:0},'fast');
+                    prevPageObj.animate({top:0},'fast').attr('id','currentShow');
                 }
 
             }).on('touchmove', function (event) {
@@ -79,18 +87,22 @@ define(['./global/global','./data/data'], function (g,data) {
 
 
                 if (Math.abs(distanceY) > minDistance && (isStart || Math.abs(distanceY) > Math.abs(distanceX))) {
-
+console.log(isStart);
+console.log(distanceY);
+console.log('Next'+canMoveNext.toString());
+console.log('prev'+canMovePrev.toString());
                     if(!isStart && distanceY<0 && canMoveNext){
-                        prevPageObj.add($(this)).css({'z-index':0});
+                        prevPageObj.add(currentShow).css({'z-index':0});
                         nexPageObj.show().css({'z-index':10});
                     }
 
                     if(!isStart && distanceY>=0 && canMovePrev){
                         prevPageObj.show().css({'z-index':10});
-                        nexPageObj.add($(this)).css({'z-index':0});
+                        nexPageObj.add(currentShow).css({'z-index':0});
                     }
 
                     isStart = true;
+                    isEnd = false;
 
                     if (distanceY < 0) {
                         if (canMoveNext) {
@@ -163,7 +175,8 @@ define(['./global/global','./data/data'], function (g,data) {
             if(nexPageObj && nexPageObj.length && nexPageObj[0].nodeName.toLocaleLowerCase()!=='script'){
                 pageObj.prev().hide();
                 pageObj.hide();
-                nexPageObj.show();
+                $('#currentShow').removeAttr('id');
+                nexPageObj.show().attr('id','currentShow');
             }
         },
 
