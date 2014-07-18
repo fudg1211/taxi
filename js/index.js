@@ -7,6 +7,8 @@
  */
 define(['./global/global', './data/data'], function (g, data) {
     var part16Timeout;
+    var isEnd = true;
+    var isStart = false;
 
     var IndexController = FishMVC.View.extend({
         init: function () {
@@ -25,16 +27,16 @@ define(['./global/global', './data/data'], function (g, data) {
                 x = 0,
                 tempY = 0,
                 minDistance = 50,
-                isStart = false,
                 bodyHeight = $('body').height(),
                 canMoveNext = false,
                 canMovePrev = false,
                 direction,
                 nexPageObj,
                 prevPageObj,
-                currentShow,
-                isEnd = true;
+                currentShow;
             $('body').on('touchstart', function (event) {
+                $('body').unbind('touchend').unbind('touchmove');
+
                 if (!isEnd) {
                     return false;
                 }
@@ -60,75 +62,107 @@ define(['./global/global', './data/data'], function (g, data) {
                 }
 
                 event.preventDefault();
-            });
-            $('body').on('touchend', function (event) {
-
-                isEnd = true;
-
-                if(Math.abs(tempY - y)<250 && direction){
-                    prevPageObj.animate({top: '-100%'},'fast');
-                    nexPageObj.animate({top: '100%'},'fast');
-                    return;
-                }
-
-                if (isStart && direction) {
-                    currentShow.hide().css('z-index', 0).removeAttr('id');
-                }
-
-                if (isStart && direction == 'up') {
-
-                    nexPageObj.animate({top: 0}, 'fast').attr('id', 'currentShow').css('z-index',0);
-                }
-
-                if (isStart && direction == 'down') {
-                    prevPageObj.animate({top: 0}, 'fast').attr('id', 'currentShow').css('z-index',0);
-                }
-
-                event.preventDefault();
 
 
-            });
+                $(this).on('touchend', function (event) {
 
-            $('body').on('touchmove', function (event) {
+                    setTimeout(function(){
+                        isEnd = true;
+                    },500);
 
-                tempY = event.originalEvent.pageY;
+                    if(Math.abs(tempY - y)<200 && direction){
 
-                var tempX = event.originalEvent.pageX,
-                    distanceY = tempY - y,
-                    distanceX = tempX - x;
-
-                if (Math.abs(distanceY) > minDistance && (Math.abs(distanceY) > Math.abs(distanceX))) {
-
-
-                    isStart = true;
-                    isEnd = false;
-
-
-                    if (!direction) {
-                        if (distanceY < 0 && canMoveNext) {
-                            direction = 'up';
+                        if(direction==='down' && prevPageObj){
+                            prevPageObj.animate({top: '-100%'},'fast');
                         }
 
-                        if (distanceY > 0 && canMovePrev) {
-                            direction = 'down';
+                        if(direction==='up' && nexPageObj){
+                            nexPageObj.animate({top: '100%'},'fast');
                         }
+
+                        return;
                     }
 
-                    if (direction === 'up') {
-                        nexPageObj.show().css('top', bodyHeight + distanceY)
+                    if (isStart && direction) {
+                        currentShow.css('z-index', 0).removeAttr('id');
                     }
 
-                    if (direction === 'down') {
-                        console.log(distanceY);
-                        prevPageObj.show().css('top',-bodyHeight+distanceY);
+                    if (isStart && direction == 'up') {
+
+                        nexPageObj.attr('id', 'currentShow').animate({top: 0}, 'fast',function(){
+                            currentShow.hide();
+                            nexPageObj.css('z-index',0);
+                            isEnd = true;
+                            isStart = false;
+                        });
                     }
 
-                }
+                    if (isStart && direction == 'down') {
+
+                        prevPageObj.attr('id', 'currentShow').animate({top: 0},'fast',function(){
+                            currentShow.hide();
+                            prevPageObj.css('z-index',0);
+                            isEnd = true;
+                            isStart = false;
+                        });
+                    }
+
+                    event.preventDefault();
+
+                    $('body').unbind('touchend');
+
+                });
 
 
-                event.preventDefault();
+
+                $(this).on('touchmove', function (event) {
+
+                    tempY = event.originalEvent.pageY;
+
+                    var tempX = event.originalEvent.pageX,
+                        distanceY = tempY - y,
+                        distanceX = tempX - x;
+
+
+
+                    if (Math.abs(distanceY) > minDistance && (Math.abs(distanceY) > Math.abs(distanceX))) {
+
+                        if (!direction) {
+                            if (distanceY < 0 && canMoveNext) {
+                                direction = 'up';
+                                nexPageObj.css('z-index',10);
+                            }
+
+                            if (distanceY > 0 && canMovePrev) {
+                                direction = 'down';
+                                prevPageObj.css('z-index', 10);
+                            }
+                        }
+
+                        if (direction === 'up') {
+                            nexPageObj.show().css('top', bodyHeight + distanceY)
+                        }
+
+                        if (direction === 'down') {
+                            prevPageObj.show().css('top',-bodyHeight+distanceY);
+                        }
+
+
+                        isStart = true;
+                        isEnd = false;
+
+                    }
+
+
+                    event.preventDefault();
+
+                });
+
 
             });
+
+
+
         },
 
 
@@ -165,6 +199,7 @@ define(['./global/global', './data/data'], function (g, data) {
         },
         events: {
             'click nextPage': 'doNextPage',
+            'touchtart nextPage': 'doNextPageA',
             'click part02Position': 'doPart02Position',
             'click part03Next': 'doPart03Next',
             'click part16PhoneButton': 'doPart16PhoneButton',
@@ -172,7 +207,15 @@ define(['./global/global', './data/data'], function (g, data) {
             'click part15Right': 'doPart15Right'
         },
 
-        doNextPage: function (target) {
+        doNextPage: function (target,event) {
+            event.stopPropagation();
+
+//            console.log(isStart);
+//            if(isStart){
+//                return false;
+//            }
+
+
             var pageObj = target.parents('.page'),
                 nexPageObj = pageObj.next();
 
@@ -187,6 +230,13 @@ define(['./global/global', './data/data'], function (g, data) {
 
                 nexPageObj.show().attr('id', 'currentShow');
             }
+
+            isEnd = true;
+
+        },
+
+        doNextPageA:function(target,event){
+            event.stopPropagation();
         },
 
         doPart02Position: function (target) {
