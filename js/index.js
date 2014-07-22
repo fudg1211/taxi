@@ -5,7 +5,7 @@
  * Time: AM10:48
  * To change this template use File | Settings | File Templates.
  */
-define(['./global/global', './data/data'], function (g, data) {
+define(['./global/global', './data/data','./lib/wxshare'], function (g, data) {
     var part16Timeout;
     var isEnd = true;
     var isStart = false;
@@ -65,6 +65,8 @@ define(['./global/global', './data/data'], function (g, data) {
 
 
                 $(this).on('touchend', function (event) {
+
+                    $('body').unbind('touchend').unbind('touchmove');
 
                     setTimeout(function(){
                         isEnd = true;
@@ -178,6 +180,8 @@ define(['./global/global', './data/data'], function (g, data) {
             '.touchslider-item img': 'touchsliderItemImg',
             '.part03Prev img': 'part03Prev',
             '.part03Next img': 'part03Next',
+            '#cartIco span':'cartIco',
+
 
             '.partJiantou': 'partJiantou',
 
@@ -195,7 +199,13 @@ define(['./global/global', './data/data'], function (g, data) {
             '#part15Right': 'part15Right',
             '#part15FeijiLeft': 'part15FeijiLeft',
             '#part15FeijiRight': 'part15FeijiRight',
-            '.part15-feiji': 'part15Feiji'
+            '.part15-feiji': 'part15Feiji',
+
+            '.part19':'part19',
+            '#shareWeixin':'shareWeixin',
+
+            '#download':'download'
+
         },
         events: {
             'click nextPage': 'doNextPage',
@@ -204,16 +214,26 @@ define(['./global/global', './data/data'], function (g, data) {
             'click part03Next': 'doPart03Next',
             'click part16PhoneButton': 'doPart16PhoneButton',
             'click part15Left': 'doPart15Left',
-            'click part15Right': 'doPart15Right'
+            'click part15Right': 'doPart15Right',
+            'click part19':'doPart19',
+            'click shareWeixin':'doShareWeixin',
+            'click download':'doDownload',
+            'click cartIco':'doCartIco'
         },
 
         doNextPage: function (target,event) {
-            event.stopPropagation();
 
-//            console.log(isStart);
-//            if(isStart){
-//                return false;
-//            }
+            if(isStart){
+                return false;
+            }
+
+            var musicControl = $('#musicControl');
+
+            if(musicControl.attr('src')=='images/music.png'){
+                musicControl.attr('src','images/music_on.png');
+            }
+
+            event.stopPropagation();
 
 
             var pageObj = target.parents('.page'),
@@ -382,8 +402,57 @@ define(['./global/global', './data/data'], function (g, data) {
                 self['part15FeijiRight'].css('-webkit-transition', '-webkit-transform 2s linear');
                 self['part15FeijiRight'].css('-webkit-transform', 'translate(-1160px,0)');
             }, 200)
+        },
+
+        doShareWeixin:function(){
+            $('.shareGuide').remove();
+            var el = '<div class="shareGuide" ontouchstart="$(this).remove();"></div>';
+            $('body').append(el);
+            WeiXinShareBtn();
+        },
+
+        doDownload:function(){
+            if(/iphone/i.test(window.navigator.userAgent)){
+                window.location.href='index.php';
+            }else{
+                window.location.href='http://yongche.aayongche.com/app/download?app=aa_client&device=android';
+            }
+
+            return false;
+        },
+        doCartIco:function(target){
+            var index = target.index();
+            this.cartImgDesc.eq(index).trigger('click');
+
         }
 
     });
     var indexController = new IndexController({el: $('.wrapper')});
 });
+
+setTimeout(function(){
+
+    var doMusicControl = function(a){
+        var video = document.getElementById('audioSource');
+
+        if (video.paused) {
+            if(a){
+                $('#musicControl').attr('src','images/music_on.png');
+            }
+            video.play();
+        } else {
+            if(a){
+                $('#musicControl').attr('src','images/music_off.png');
+            }
+            video.pause();
+        }
+    };
+
+    doMusicControl();
+
+    $('#musicControl').on('click',function(){
+        doMusicControl(true);
+    })
+
+},1000);
+

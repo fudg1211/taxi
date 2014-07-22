@@ -1,4 +1,215 @@
-define(["./configs","./storage","./hack"],function(){var e={}.toString,f=window.$;return window.com=common={isFunction:function(b){return e.call(b)=="[object Function]"},isString:function(b){return e.call(b)=="[object String]"},isArray:function(b){return e.call(b)=="[object Array]"},isObject:function(b){return e.call(b)=="[object Object]"},ua:window.navigator.userAgent,getRender:function(b,c){return(new EJS({url:b})).render({md:c})},dialog:function(b){if(!b.content){var c=b.url||"tpl/dialog";delete b.url;
-b.content=this.getRender(c,b)}return dialog(b)},alert:function(b){b||(b={});if(!b.content)b.url=b.url||"tpl/alert";b.className="alertDialog";return this.dialog(b)},showLoading:function(){this.dialog({url:"tpl/loading",className:"loadingDialog"})},removeLoading:function(){f(".loadingDialog").remove()},ajax:function(b){b.url&&(b.url+=/^[^\?]*\?/.test(b.url)?"&mdNmk="+Math.random():"?mdNmk="+Math.random());var c={type:"GET",url:this.host,data:"",dataType:"json",success:function(){},error:function(){},
-complete:function(){}};this.mix(c,b);c.success=function(c){b.success(c)};f.ajax(c)},mix:function(b,c){for(var d in c)b[d]=c[d]},clon:function(b){var c={},d=this;d.isArray(b)&&(c=[]);(function(b,c){if(d.isObject(b))for(k in b)b.hasOwnProperty(k)&&(d.isObject(b[k])?(c[k]={},arguments.callee(b[k],c[k])):d.isArray(b[k])?(c[k]=[],arguments.callee(b[k],c[k])):c[k]=b[k]);else if(d.isArray(b))for(k in b)d.isObject(b[k])?(c[k]={},arguments.callee(b[k],c[k])):d.isArray(b[k])?(c[k]=[],arguments.callee(b[k],
-c[k])):c[k]=b[k]})(b,c);return c},gather:{},query:function(b,c){if(!b)return!1;this._queryArray||(this._queryArray=[]);if(this._queryArray.length)return this._queryArray[b];else{var c=c||window.location.href,c=c.replace(/#[^&]*$/,""),d=c.match(/\?(.+)/);if(d&&d[1]){d=d[1].split("&");for(a in d){var e=d[a].split("=");this._queryArray[e[0]]=e[1]}return this._queryArray[b]}else return""}}}});
+/**
+ * Created with IntelliJ IDEA.
+ * User: fudongguang
+ * Date: 13-1-17
+ * Time: 下午3:46
+ * 通用函数.
+ */
+
+
+
+define(['./configs', './storage', './hack'], function (configs, storage, hack) {
+	var toString = {}.toString,
+		$ = window.$,
+		UA = window.navigator.userAgent;
+
+
+	window.com = common = {
+
+		isFunction: function (it) {
+			return toString.call(it) == "[object Function]";
+		},
+
+		isString: function (it) {
+			return toString.call(it) == "[object String]";
+		},
+
+		isArray: function (it) {
+			return toString.call(it) == "[object Array]";
+		},
+
+		isObject: function (it) {
+			return toString.call(it) == "[object Object]";
+		},
+
+
+		ua:UA,
+
+		getRender: function (url, config) {
+			return new EJS({url: url}).render({md: config})
+		},
+
+		dialog:function(config){
+			if(!config.content){
+				var url = config.url || 'tpl/dialog';
+				delete config.url;
+				config.content = this.getRender(url,config);
+			}
+			return dialog(config);
+		},
+		alert:function(config){
+
+			if(!config){
+				config={};
+			}
+			if(!config.content){
+				config.url = config.url || 'tpl/alert';
+			}
+
+			config.className='alertDialog';
+
+			return this.dialog(config)
+		},
+
+		showLoading: function () {
+			var config = {
+				url: 'tpl/loading',
+				className: 'loadingDialog'
+			};
+
+			this.dialog(config);
+		},
+
+		removeLoading: function () {
+			$('.loadingDialog').remove();
+		},
+
+		ajax: function (configs) {
+			var self = this;
+			if(configs.url){
+				if(/^[^\?]*\?/.test(configs.url)){
+					configs.url+='&mdNmk='+Math.random();
+				}else{
+					configs.url+='?mdNmk='+Math.random();
+				}
+			}
+
+
+			var a = {
+				type: 'GET',
+				url: this.host,
+				data: '',
+                dataType:'json',
+				success: function (result) {
+					//alert('b')
+				},
+				error: function () {
+					//alert('sdf');
+				},
+				complete: function (result) {
+				}
+			};
+
+
+			this.mix(a, configs);
+			a.success = function (result) {
+					configs.success(result);
+			};
+
+			$.ajax(a);
+		},
+
+
+		/**
+		 * 合并对象
+		 * @param target
+		 * @param source
+		 */
+
+		mix: function (target, source) {
+			var k;
+			for (k in source) {
+				target[k] = source[k];
+			}
+		},
+
+		/**
+		 * 克隆对象和数组
+		 * @param obj
+		 * @returns {{}}
+		 */
+		clon: function (obj) {
+			var newObj = {}, self = this;
+
+			if(self.isArray(obj)){
+				newObj = [];
+			}
+
+			var cloneObject = (function (a, b) {
+				if (self.isObject(a)) {
+					for (k in a) {
+						if (a.hasOwnProperty(k)) {
+							if (self.isObject(a[k])) {
+								b[k] = {};
+								arguments.callee(a[k], b[k]);
+							} else if (self.isArray(a[k])) {
+								b[k] = [];
+								arguments.callee(a[k], b[k]);
+							} else {
+								b[k] = a[k];
+							}
+						}
+					}
+				} else if (self.isArray(a)) {
+					for (k in a) {
+						if (self.isObject(a[k])) {
+							b[k] = {};
+							arguments.callee(a[k], b[k]);
+						} else if (self.isArray(a[k])) {
+							b[k] = [];
+							arguments.callee(a[k], b[k]);
+						} else {
+							b[k] = a[k];
+						}
+					}
+				}
+			}(obj, newObj));
+
+			return newObj;
+		},
+
+
+		gather: {},
+
+		query: function (name,href) {
+			if (!name) {
+				return false;
+			}
+
+			this._queryArray || (this._queryArray = []);
+
+
+			if (this._queryArray.length) {
+				return this._queryArray[name];
+			} else {
+				href = href || window.location.href;
+				href = href.replace(/#[^&]*$/, '');//去除锚点
+
+				var reg = /\?(.+)/,
+					m = href.match(reg);
+
+				if (m && m[1]) {
+					var s = m[1].split('&');
+					for (a in s) {
+						var b = s[a].split('='),
+							k = b[0],
+							v = b[1];
+
+						this._queryArray[k] = v;
+					}
+
+					return this._queryArray[name];
+
+				} else {
+					return '';
+				}
+			}
+		}
+
+	};
+
+	return common;
+});
+
+
+

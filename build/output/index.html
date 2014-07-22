@@ -4,28 +4,37 @@
     <meta charset="UTF-8">
     <meta content="width=640, target-densitydpi=320, maximum-scale=1.0, minimum-scale=0.1, user-scalable=no"
           name="viewport"/>
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="Description" content="AA租车" />
+    <meta name="Keywords" content="AA租车" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>AA租车</title>
-    <link rel="stylesheet" type="text/css" href="css/public/public.css?v=0717224408"/>
-    <link rel="stylesheet" type="text/css" href="css/part01.css?v=0717224408"/>
+    <link rel="stylesheet" type="text/css" href="css/public/public.css?v=0721213841"/>
+    <link rel="stylesheet" type="text/css" href="css/part01.css?v=0721213841"/>
 </head>
 <body>
-<img src="images/music.png" class="music" style="display: none"/>
 
-<div class="part01 page hide">
-    <img src="images/index_01.jpg?v=0717224408" class="part01-bg"/>
-
+<div class="part01 page"  id="currentShow">
+    <img src="images/index_01.jpg" class="part01-bg"/>
     <div class="wrapper">
         <div class="part01-desc slideUp J_nextPage">
             <div class="part01-logo-animation radius-animation"></div>
         </div>
+
     </div>
 </div>
 
-
-<div class="part02 page hide">
+<div class="part02 page hide" >
     <div class="wrapper">
         <div class="tc part02-title"><img src="images/part02_04.png"/></div>
-        <div class="tc part02-phone"><img src="images/part02_05.png"/></div>
+        <div class="tc part02-phone">
+            <img src="images/part02_05.png"/>
+            <div class="part02-button part02-radius-animation"></div>
+        </div>
 
         <img src="images/part02_03.png" class="part02-zhizheng" id="part02Zhizheng"/>
 
@@ -33,7 +42,6 @@
         <div class="J_part02_position part02-position" title="国贸" data-xy="[382,490]"></div>
         <div class="J_part02_position part02-position" title="首都机场" data-xy="[382,328]"></div>
 
-        <div class="part02-button part02-radius-animation"></div>
         <a class="J_nextPage nextPage"></a>
     </div>
 </div>
@@ -71,6 +79,13 @@
                     <img class="img touchslider-nav-item" title="舒适车型" src="images/part03_03_04.png"/>
                     <img class="img touchslider-nav-item" title="经济车型" src="images/part03_03_05.png"/>
                 </div>
+                <div class="part03-cartIco tc" id="cartIco">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
 
@@ -93,7 +108,7 @@
 
 
 
-<div class="part04 page" id="currentShow">
+<div class="part04 page hide">
     <div class="wrapper">
         <div class="part04-email J_nextPage">
             <div class="part02-button radius-animation"></div>
@@ -107,10 +122,10 @@
         <div class="part05-text">
         </div>
 
-        <div class="partJiantou part16Prev">
-            <img src="images/jiantou.png"/>
-            <img src="images/jiantou.png" style="margin-left: -7px;"/>
-            <img src="images/jiantou.png"  style="margin-left: -7px;"/>
+        <div class="partJiantou part16Prev J_nextPage">
+            <img src="images/jiantou_01.png"/>
+            <img src="images/jiantou_01.png" style="margin-left: -7px;"/>
+            <img src="images/jiantou_01.png"  style="margin-left: -7px;"/>
         </div>
 
         <p class="partJiantou-text">出发</p>
@@ -118,10 +133,15 @@
 </div>
 
 
-<div class="part06 page hide">
-    <img src="images/part06_01.jpg?v=0717224408" class="part06-bg" />
+<div class="part06 page hide J_touch">
+    <img src="images/part06_01.jpg" class="part06-bg" />
     <div class="wrapper">
-        <div class="part06-desc J_nextPage">
+        <div class="part06-desc">
+        </div>
+        <div class="partJiantou part16Prev J_nextPage">
+            <img src="images/jiantou.png"/>
+            <img src="images/jiantou.png" style="margin-left: -7px;"/>
+            <img src="images/jiantou.png"  style="margin-left: -7px;"/>
         </div>
     </div>
 </div>
@@ -131,7 +151,7 @@
     <div class="part07-bg">
      </div>
     <div class="wrapper">
-        <div class="partJiantou part16Prev">
+        <div class="partJiantou part16Prev J_nextPage">
             <img src="images/jiantou.png"/>
             <img src="images/jiantou.png" style="margin-left: -7px;"/>
             <img src="images/jiantou.png"  style="margin-left: -7px;"/>
@@ -141,14 +161,20 @@
 </div>
 
 
-<div class="part08 page hide">
+<div class="part08 hide page">
     <div class="part08-bg">
-        <div class="part02-button radius-animation J_nextPage"></div>
+        <div class="part02-button radius-animation"></div>
+    </div>
+    <div class="wrapper">
+        <div class="part02-button J_nextPage"></div>
     </div>
 </div>
 
-<div class="part09 page hide">
-    <div class="part08-bg">
+<div class="part09 hide page">
+    <div class="part09-bg">
+        <div class="part09-button">
+            确 定
+        </div>
     </div>
 
     <div class="wrapper">
@@ -214,9 +240,9 @@
     </div>
     <div class="wrapper">
 
-        <img src="images/part11_01.png?v=0717224408" class="part11-bg J_nextPage" />
+        <img src="images/part11_01.png" class="part11-bg J_nextPage" />
 
-        <div class="partJiantou part16Prev">
+        <div class="partJiantou part16Prev J_nextPage">
             <img src="images/jiantou.png"/>
             <img src="images/jiantou.png" style="margin-left: -7px;"/>
             <img src="images/jiantou.png"  style="margin-left: -7px;"/>
@@ -234,9 +260,30 @@
 </div>
 
 
-<div class="part14 part02 page hide">
+<div class="partx page hide J_touch">
+    <div class="wrapper">
+        <div class="tc partx-phone" id="partx-phone" id="parxTplDest">
+            <img src="images/partx_01.png" style="display: none;"/>
+        </div>
+
+        <div class="partJiantou part16Prev J_nextPage">
+            <img src="images/jiantou_01.png"/>
+            <img src="images/jiantou_01.png" style="margin-left: -7px;"/>
+            <img src="images/jiantou_01.png"  style="margin-left: -7px;"/>
+        </div>
+    </div>
+</div>
+
+
+<div class="part14 part02  page J_touch hide" >
     <div class="wrapper">
         <div class="tc part14-text"><img src="images/part14_01.png"/></div>
+
+        <div class="partJiantou part16Prev J_nextPage">
+            <img src="images/jiantou.png"/>
+            <img src="images/jiantou.png" style="margin-left: -7px;"/>
+            <img src="images/jiantou.png"  style="margin-left: -7px;"/>
+        </div>
     </div>
 </div>
 
@@ -255,7 +302,7 @@
         <img src="images/part15_03_01.png" class="part15-feiji" id="part15FeijiLeft"/>
         <img src="images/part15_03.png" class="part15-feiji part15-feiji-right" id="part15FeijiRight"/>
 
-        <div class="partJiantou part16Prev">
+        <div class="partJiantou part16Prev J_nextPage">
             <img src="images/jiantou.png"/>
             <img src="images/jiantou.png" style="margin-left: -7px;"/>
             <img src="images/jiantou.png"  style="margin-left: -7px;"/>
@@ -284,7 +331,7 @@
             <img src="images/part16_03.png"/>
         </div>
 
-        <div class="partJiantou part16Prev">
+        <div class="partJiantou part16Prev J_nextPage">
             <img src="images/jiantou.png"/>
             <img src="images/jiantou.png" style="margin-left: -7px;"/>
             <img src="images/jiantou.png"  style="margin-left: -7px;"/>
@@ -297,12 +344,14 @@
 <div class="part17 page hide J_touch">
     <div class="wrapper">
         <div class="tc part02-title"><img src="images/part17_01.png"/></div>
-        <div class="tc part17-phone"><img src="images/part17_03.png"/></div>
+        <div class="tc part17-phone">
+            <img src="images/part17_03.png"/>
+        </div>
         <div class="tc part17-text">
             <img src="images/part17_02.png"/>
         </div>
 
-        <div class="partJiantou part16Prev">
+        <div class="partJiantou part16Prev J_nextPage">
             <img src="images/jiantou.png"/>
             <img src="images/jiantou.png" style="margin-left: -7px;"/>
             <img src="images/jiantou.png"  style="margin-left: -7px;"/>
@@ -315,7 +364,7 @@
         <div class="tc part02-title"><img src="images/part18_01.png"/></div>
         <div class="tc part18-phone"><img src="images/part18_02.png"/></div>
 
-        <div class="partJiantou part16Prev">
+        <div class="partJiantou part16Prev J_nextPage">
             <img src="images/jiantou.png"/>
             <img src="images/jiantou.png" style="margin-left: -7px;"/>
             <img src="images/jiantou.png"  style="margin-left: -7px;"/>
@@ -323,20 +372,26 @@
     </div>
 </div>
 
-<div class="part19 page hide ">
+<div class="part19 page hide">
     <div class="wrapper">
         <img class="part19-title" src="images/part19_01.png"/>
         <div class="tc part19-phone"><img src="images/part19_02.png"/></div>
+        <a href="index.php" class="download" id="download"></a>
+        <div class="share-weixin" id="shareWeixin"></div>
+        <a href="tel:123456789" class="phone"></a>
     </div>
 </div>
 
 
-<div class="partx page hide ">
-    <div class="wrapper">
-        <div class="tc partx-phone" id="partx-phone" id="parxTplDest">
-        </div>
-    </div>
-</div>
+
+
+<script type="text/javascript" src="js/lib/wxshare.js"></script>
+
+<script type="text/javascript">
+    _WXShare('http://mebx.cn/aataxi/images/logo.jpg','100','100','AA租车为您提供一种全新出行方式，随时随地专享用车。只需在手机中安装客户端，轻松一点，专车就会准时出现在您需要的地方。包括随叫随到、预定用车以及接送机等多种专业服务。','AA租车为您提供一种全新出行方式，随时随地专享用车。只需在手机中安装客户端，轻松一点，专车就会准时出现在您需要的地方。包括随叫随到、预定用车以及接送机等多种专业服务。','http://mebx.cn/aataxi/');
+</script>
+
+
 
 <script type="text/html" id="parxTpl">
     <div style="height: 1px;"></div>
@@ -359,16 +414,24 @@
     </table>
 </script>
 
+
 <script type="text/javascript" src="http://item.koudai.com/js/jquery.js"></script>
 <script type="text/javascript" src="js/lib/require.js"></script>
-<script type="text/javascript" src="js/app.js?v=0717224408"></script>
+<script type="text/javascript" src="js/app.js?v=0721213841"></script>
 
 <script type="text/javascript">
-    requirejs([ 'index' ], function () {
-
-
-    });
+    requirejs(['index'],function(){})
 </script>
+
+
+<img src="images/music.png" class="music" id="musicControl"/>
+
+<audio id="audioSource" preload="preload">
+    <source src="images/music.mp3" type="audio/mp3">
+    <source src="images/music.ogg" type="audio/ogg">
+</audio>
+
+
 
 </body>
 </html>

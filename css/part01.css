@@ -16,6 +16,12 @@
     }
 }
 
+.music{
+    position: absolute;
+    right:20px ;
+    top: 20px;
+}
+
 .logo-C{
     position: absolute;
     left: 0;
@@ -31,6 +37,7 @@
     border-radius: 25px;
     display: inline-block;
     background: rgba(0,0,0,0);
+    -webkit-animation: radius-animation linear 2s 0s infinite;
 }
 
 .part01-desc{
@@ -85,7 +92,7 @@
     border-radius: 15px;
     position: absolute;
     left: 239px;
-    top: 633px;
+    top: 483px;
 }
 
 .part02 .nextPage{
@@ -184,7 +191,7 @@
 }
 
 .part02-radius-animation{
-    -webkit-animation: radius-animation linear 2s 2s infinite;
+    -webkit-animation: radius-animation linear 2s 0s infinite;
 }
 
 /*********part03***********/
@@ -243,7 +250,7 @@
 }
 
 .part03 .part02-radius-animation{
-    -webkit-animation: radius-animation linear 2s 2.5s infinite;
+    -webkit-animation: radius-animation linear 2s 0s infinite;
 }
 
 
@@ -287,19 +294,31 @@
     top: 280px;
 }
 
-.touchslider>div>span{
-    display: inline-block;
-    border-radius: 30px;
-    width: 30px;
-    height: 30px;
-    background-color: red;
-}
+/*.touchslider>div>span{*/
+    /*display: inline-block;*/
+    /*border-radius: 30px;*/
+    /*width: 30px;*/
+    /*height: 30px;*/
+    /*background-color: red;*/
+/*}*/
 
 
 .part03-jiantou img{
     opacity: 0.3;
 }
 
+.part03-cartIco{
+    margin-top: 100px;
+    position: relative;
+}
+
+.part03-cartIco span{
+    width: 73px;
+    height: 70px;
+    margin-left: 2px;
+    margin-right: 2px;
+    display: inline-block;
+}
 
 
 /*********part16***********/
@@ -344,6 +363,7 @@
     position: absolute;
     left: 281px;
     top: 194px;
+    -webkit-animation: radius-animation linear 2s 0s infinite;
 }
 
 .part16 .part16-button-02{
@@ -510,7 +530,7 @@ td p{
 }
 
 .part04 .radius-animation{
-    -webkit-animation: radius-animation linear 2s 1s infinite;
+    -webkit-animation: radius-animation linear 2s 0s infinite;
 }
 
 
@@ -561,6 +581,9 @@ td p{
     padding-left: 10px;
 }
 
+.part05 .partJiantou-text{
+    color:#888484;
+}
 
 /*********part06 start***********/
 .part06{
@@ -589,7 +612,7 @@ td p{
     background: url(../images/part06_02.png?v=123) no-repeat;
     width: 403px;
     height: 351px;
-    top: 587px;
+    bottom: 50px;
     left: 262px;
     position: absolute;
     -webkit-animation:part06-desc 2.5s ease 0s 1 normal forwards;
@@ -662,8 +685,12 @@ td p{
     }
 }
 
-.part09 .radius-animation,.part08 .radius-animation {
-    -webkit-animation: radius-animation linear 2s 1s infinite;
+
+
+
+
+.part08 .radius-animation {
+    -webkit-animation: radius-animation linear 2s 0s infinite;
 }
 .part09 .part02-button,.part08 .part02-button {
     width: 112px;
@@ -719,6 +746,35 @@ td p{
     -webkit-transform:rotate(0deg);
 }
 
+
+
+.part09-button{
+    width: 70px;
+    height: 75px;
+    position: absolute;
+    top:650px;
+    left: 50%;
+    margin-left: -35px;
+    background-color: #142249;
+    border-radius: 10px;
+    line-height: 75px;
+    text-align: center;
+    font-size: 28px;
+}
+
+
+.part09-bg{
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../images/part08_01.jpg) no-repeat center top;
+}
+
+.part09 .radius-animation{
+    -webkit-animation: radius-animation linear 2s 0s infinite;
+}
 
 /*********part11 start***********/
 .part11-bg{
@@ -797,6 +853,7 @@ td p{
     left: 50%;
     margin-left: -62px;
     top: 224px;
+    -webkit-animation: radius-animation linear 2s 0s infinite;
 }
 
 .part15-left,.part15-right{
@@ -828,7 +885,7 @@ td p{
 .part17 .part17-phone{
     position: absolute;
     left: 0;
-    top: 345px;
+    top: 200px;
     width: 100%;
     opacity: 0;
     -webkit-animation:part02-phone 2s ease 0s 1 normal forwards;
@@ -862,7 +919,7 @@ td p{
 .part18 .part18-phone{
     position: absolute;
     left: 0;
-    top: 417px;
+    top: 450px;
     width: 100%;
     opacity: 0;
     -webkit-animation:part18-phone 2s ease 0s 1 normal forwards;
@@ -883,7 +940,7 @@ td p{
 
 /*********part19 start***********/
 .part19{
-    background: url(../images/part02_01.jpg?v=123) no-repeat center 100px;
+    background: url(../images/part02_01.jpg) no-repeat center 100px;
 }
 
 
@@ -928,6 +985,35 @@ td p{
     }
 }
 
+
+
+
+.share-weixin,.download,.phone{
+    position: absolute;
+    top:646px;
+    left: 50%;
+    margin-left: -220px;
+    width:440px;
+    height: 55px;
+}
+
+.download{
+    top:567px;
+}
+
+.phone{
+    top: 725px;
+}
+
+.shareGuide{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:url(../images/share-guide.png) no-repeat right top;
+    z-index: 1000;
+}
 
 .wrapper{
     /*margin-top: -200px;*/
