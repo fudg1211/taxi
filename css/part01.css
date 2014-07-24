@@ -862,16 +862,16 @@ td p{
 
 .part15-feiji{
     position: absolute;
-    left: -410px;
     top:155px;
     opacity: 0;
+    right: -410px;
     -webkit-transition:-webkit-transform 3s linear;
 }
 
 
 .part15-feiji-right{
-    right: -410px;
-    left: auto;
+    left: -410px;
+    right: auto;
 }
 
 .part15-feiji-01{

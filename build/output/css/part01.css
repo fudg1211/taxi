@@ -41,7 +41,7 @@
 }
 
 .part01-desc{
-    background: url(../images/index_02.png?v=0721213841) no-repeat;
+    background: url(../images/index_02.png?v=0722221137) no-repeat;
     width: 403px;
     height: 351px;
     top: 411px;
@@ -61,7 +61,7 @@
 
 /*********part02***********/
 .part02{
-    background: url(../images/part02_01.jpg?v=0721213841) no-repeat center 100px;
+    background: url(../images/part02_01.jpg?v=0722221137) no-repeat center 100px;
 }
 
 
@@ -196,7 +196,7 @@
 
 /*********part03***********/
 .part03{
-    background: url(../images/part03_01.jpg?v=0721213841) no-repeat center top;
+    background: url(../images/part03_01.jpg?v=0722221137) no-repeat center top;
 }
 
 .part03-title{
@@ -323,7 +323,7 @@
 
 /*********part16***********/
 .part16{
-    background: url(../images/part16_05.jpg?v=0721213841) no-repeat center top;
+    background: url(../images/part16_05.jpg?v=0722221137) no-repeat center top;
 }
 
 
@@ -609,7 +609,7 @@ td p{
 }
 
 .part06-desc{
-    background: url(../images/part06_02.png?v=0721213841) no-repeat;
+    background: url(../images/part06_02.png?v=0722221137) no-repeat;
     width: 403px;
     height: 351px;
     bottom: 50px;
@@ -818,7 +818,7 @@ td p{
 
 /*********part15 start***********/
 .part15{
-    background: url(../images/part15_04.jpg?v=0721213841) no-repeat center top;
+    background: url(../images/part15_04.jpg?v=0722221137) no-repeat center top;
 }
 
 
@@ -862,16 +862,16 @@ td p{
 
 .part15-feiji{
     position: absolute;
-    left: -410px;
     top:155px;
     opacity: 0;
+    right: -410px;
     -webkit-transition:-webkit-transform 3s linear;
 }
 
 
 .part15-feiji-right{
-    right: -410px;
-    left: auto;
+    left: -410px;
+    right: auto;
 }
 
 .part15-feiji-01{

@@ -384,11 +384,11 @@ define(['./global/global', './data/data','./lib/wxshare'], function (g, data) {
             var self = this;
             this['part15Feiji'].css('opacity', 0);
             this['part15FeijiLeft'].css('-webkit-transition', '-webkit-transform 0s linear');
-            this['part15FeijiLeft'].css('-webkit-transform', 'translate(-100px,0)');
+            this['part15FeijiLeft'].css('-webkit-transform', 'translate(100px,0)');
             setTimeout(function () {
                 self['part15FeijiLeft'].css('opacity', 1);
                 self['part15FeijiLeft'].css('-webkit-transition', '-webkit-transform 2s linear');
-                self['part15FeijiLeft'].css('-webkit-transform', 'translate(1160px,0)');
+                self['part15FeijiLeft'].css('-webkit-transform', 'translate(-1160px,0)');
             }, 200)
         },
 
@@ -396,11 +396,11 @@ define(['./global/global', './data/data','./lib/wxshare'], function (g, data) {
             var self = this;
             this['part15Feiji'].css('opacity', 0);
             this['part15FeijiRight'].css('-webkit-transition', '-webkit-transform 0s linear');
-            this['part15FeijiRight'].css('-webkit-transform', 'translate(100px,0)');
+            this['part15FeijiRight'].css('-webkit-transform', 'translate(-100px,0)');
             setTimeout(function () {
                 self['part15FeijiRight'].css('opacity', 1);
                 self['part15FeijiRight'].css('-webkit-transition', '-webkit-transform 2s linear');
-                self['part15FeijiRight'].css('-webkit-transform', 'translate(-1160px,0)');
+                self['part15FeijiRight'].css('-webkit-transform', 'translate(1160px,0)');
             }, 200)
         },
 
@@ -412,10 +412,18 @@ define(['./global/global', './data/data','./lib/wxshare'], function (g, data) {
         },
 
         doDownload:function(){
-            if(/iphone/i.test(window.navigator.userAgent)){
-                window.location.href='index.php';
+            if(window.WeixinJSBridge){
+                if(/iphone/i.test(window.navigator.userAgent)){
+                    window.location.href='http://mp.weixin.qq.com/mp/redirect?url=http%3A%2F%2Fmebx.cn%2Faataxi%2Fdownload.php';
+                }else{
+                    window.location.href='http://mp.weixin.qq.com/mp/redirect?url=http%3A%2F%2Fmebx.cn%2Faataxi%2Fdownload.php%3Fplatform%3Dandroid';
+                }
             }else{
-                window.location.href='http://yongche.aayongche.com/app/download?app=aa_client&device=android';
+                if(/iphone/i.test(window.navigator.userAgent)){
+                    window.location.href='http://mebx.cn/aataxi/download.php';
+                }else{
+                    window.location.href='http://mebx.cn/aataxi/download.php?platform=android';
+                }
             }
 
             return false;
@@ -450,7 +458,7 @@ setTimeout(function(){
 
     doMusicControl();
 
-    $('#musicControl').on('click',function(){
+    $('#musicControl').on('touchend',function(){
         doMusicControl(true);
     })
 

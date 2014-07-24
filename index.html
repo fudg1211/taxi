@@ -299,8 +299,8 @@
             </div>
         </div>
 
-        <img src="images/part15_03_01.png" class="part15-feiji" id="part15FeijiLeft"/>
-        <img src="images/part15_03.png" class="part15-feiji part15-feiji-right" id="part15FeijiRight"/>
+        <img src="images/part15_03.png" class="part15-feiji" id="part15FeijiLeft"/>
+        <img src="images/part15_03_01.png" class="part15-feiji part15-feiji-right" id="part15FeijiRight"/>
 
         <div class="partJiantou part16Prev J_nextPage">
             <img src="images/jiantou.png"/>
@@ -372,11 +372,11 @@
     </div>
 </div>
 
-<div class="part19 page">
+<div class="part19 page hide">
     <div class="wrapper">
         <img class="part19-title" src="images/part19_01.png"/>
         <div class="tc part19-phone"><img src="images/part19_02.png"/></div>
-        <a href="index.php" class="download" id="download"></a>
+        <a href="javascript:;" class="download" id="download"></a>
         <div class="share-weixin" id="shareWeixin"></div>
         <a href="tel:123456789" class="phone"></a>
     </div>
@@ -391,6 +391,11 @@
     _WXShare('http://mebx.cn/aataxi/images/logo.jpg','100','100','AA租车为您提供一种全新出行方式，随时随地专享用车。只需在手机中安装客户端，轻松一点，专车就会准时出现在您需要的地方。包括随叫随到、预定用车以及接送机等多种专业服务。','AA租车为您提供一种全新出行方式，随时随地专享用车。只需在手机中安装客户端，轻松一点，专车就会准时出现在您需要的地方。包括随叫随到、预定用车以及接送机等多种专业服务。','http://mebx.cn/aataxi/');
 </script>
 
+<img src="images/music.png" class="music" id="musicControl"/>
+
+<audio id="audioSource" loop>
+    <source src="images/music.mp3?v=123" type="audio/mp3">
+</audio>
 
 
 <script type="text/html" id="parxTpl">
@@ -415,22 +420,13 @@
 </script>
 
 
-<script type="text/javascript" src="http://item.koudai.com/js/jquery.js"></script>
-<script type="text/javascript" src="js/lib/require.js"></script>
+<script type="text/javascript" src="http://static.youku.com/v/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://item.koudai.com/js/require.js"></script>
 <script type="text/javascript" src="js/app.js?v=0703102018"></script>
 
 <script type="text/javascript">
     requirejs(['index'],function(){})
 </script>
-
-
-<img src="images/music.png" class="music" id="musicControl"/>
-
-<audio id="audioSource" preload="preload">
-    <source src="images/music.mp3" type="audio/mp3">
-    <source src="images/music.ogg" type="audio/ogg">
-</audio>
-
 
 
 </body>
